@@ -52,7 +52,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
-server.listen(3030, '192.168.0.102');
+server.listen(3030, '192.168.115.159');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
@@ -105,7 +105,7 @@ function handler(packet) {
 // но для краткости и удобства для статьи я решил обойтись средствами node.js
 app.get('/', (req, res) => {
     // отдаем статик файл в браузер
-    res.sendFile(__dirname + '/pages/home/index.html');
+    res.sendFile(__dirname + '/view/pages/home/index.html');
 });
 
 // событие при подключении нового web socket

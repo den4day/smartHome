@@ -1,8 +1,8 @@
 let sock = io();
 
 const indorTemp = document.querySelector('.weather__indorTemp');
-const hum = document.getElementById('field-h');
-const outdorTemp = document.getElementById('field-l');
+const hum = document.getElementById('.weather__hum');
+const outdorTemp = document.getElementById('.weather__outdorTemp');
 const btnToggle = document.getElementById('btn-toggle');
 
 let loadEnabled = 0;
