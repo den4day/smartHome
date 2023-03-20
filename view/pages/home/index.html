@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="http://den4da12.beget.tech/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Smart Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="header__nav">
+                <img class="header__burger" src="../../img/burgerMenu.svg" alt="burger-menu">
+                <a class="header__avatar" href="ac.html">
+                    <img class="header__image" src="../../img/avatar.svg" alt="avatar">
+                </a>
+            </nav>
+            <div class="header__greet">
+                <div class="header__name">Hi Alexander</div>
+                <div class="header__welcome">Welcome to your smart home</div>
+            </div>
+        </header>
+        <article class="weather">
+            <div class="weather__container">
+                <img class="weather__img" src="../../img/cloudy.svg" alt="weather">
+                <div class="weather__info">
+                    <div class="weather__header">Cloudy</div>
+                    <div class="weather__text">Tuesday, 13 April 2023</div>
+                </div>
+            </div>
+            <button id="btn-toggle" disabled="disabled">Нагрузка...</button>
+            <div class="weather__row">
+                <div class="weather__block">
+                    <div class="weather__article">Indor Temp</div>
+                    <div class="weather__bg">
+                        <div class="weather__data">
+                            <span class="weather__indorTemp">---</span> °C
+                        </div>
+                    </div>
+                </div>
+                <div class="weather__block">
+                    <div class="weather__article">Humidity</div>
+                    <div class="weather__bg">
+                        <div class="weather__data">
+                            <span class="weather__hum">---</span> °C
+                        </div>
+                    </div>
+                </div>
+                <div class="weather__block">
+                    <div class="weather__article">Outdor Temp</div>
+                    <div class="weather__bg">
+                        <div class="weather__data">
+                            <span class="weather__outdorTemp">---</span> °C
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <ul class="control__list">
+            <li class="control__item control__item--active">Living Room</li>
+            <li class="control__item">Bedroom</li>
+            <li class="control__item">Dinning Room</li>
+            <li class="control__item">Kitchen</li>
+        </ul>
+        <section class="control">
+            <a class="control__tile" href="light.html">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/lamp.svg" alt="lamp">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">Light</div>
+                    <div class="control__text">90%</div>
+                </div>
+            </a>
+            <a class="control__tile" href="#">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/snowflake.png" alt="AC">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">AC</div>
+                    <div class="control__text">25 °C</div>
+                </div>
+            </a>
+            <a class="control__tile" href="#">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/curtains.svg" alt="blinds">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">Blinds</div>
+                    <div class="control__text">30 °C</div>
+                </div>
+            </a>
+            <a class="control__tile" href="#">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/ventilation.svg" alt="venting">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">Venting</div>
+                    <div class="control__text">50 °C</div>
+                </div>
+            </a>
+            <a class="control__tile" href="#">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/cv.svg" alt="CV">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">CV</div>
+                    <div class="control__text">45 °C</div>
+                </div>
+            </a>
+            <a class="control__tile" href="#">
+                <div class="control__up">
+                    <img class="control__image" src="../../img/robot.svg" alt="robot">
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="control__info">
+                    <div class="control__header">Robot</div>
+                    <div class="control__text">80 °C</div>
+                </div>
+            </a>
+        </section>
+        <footer class="footer">
+            <button class="footer__btn">Turn off all devices</button>
+        </footer>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

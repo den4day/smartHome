@@ -1,0 +1,149 @@
+.header::before {
+    content: url("../img/arrow.svg");
+    position: absolute;
+    height: 15px;
+    left: 20px;
+    top: 16px;
+    width: 28px;
+    cursor: pointer;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.header__name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+/* .light {} */
+
+.light__section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+/* .light__left {} */
+
+.light__up {
+    margin-bottom: 20px;
+}
+
+.light__header {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.light__down-header {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.light__down-text {
+    font-size: 12px;
+}
+
+.light__lamp {
+    width: 80px;
+    height: 80px;
+}
+
+/* .light__bottomn {} */
+
+.light__bottom-text {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    margin-top: 40px;
+}
+
+.light__bottom-signs {
+    display: flex;
+    align-items: center;
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+.light__header-text {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.three ul {
+    background: #E4EFD1;
+}
+
+.three ul a {
+    color: #74924C;
+}
+
+.three .submenu {
+    visibility: hidden;
+    opacity: 0;
+    background: #BAD78B;
+}
+
+.three ul li:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.footer__hr {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0;
+    height: 2px;
+    width: 280px;
+    border: none;
+    border-top: 1px solid #F0EFF4;
+}
+
+.footer {
+    background-color: rgba(102, 161, 255, 0.5);
+    border-radius: 50px 50px 0px 0px;
+    padding-bottom: 50px;
+}
+
+.footer__header {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+/* .footer__line {
+} */
+
+.footer__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* .footer__usage {
+}
+.footer__data {
+} */
+
+.footer__num {
+    font-weight: 700;
+    font-size: 16px;
+    color: #F0EFF4;
+}
+
+.footer__let {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.footer__hr {
+    border-radius: 10px;
+    height: 2px;
+    border: 1px solid #F0EFF4;
+    background-color: #F0EFF4;
+}

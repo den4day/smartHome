@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/light.css">
+    <title>Light Control</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="header__nav">
+                <a class="header__backwards" href="index.html">
+                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
+                </a>
+                <div class="header__words">Light Control</div>
+            </nav>
+        </header>
+        <section class="light">
+            <div class="light__section">
+                <div class="light__left">
+                    <div class="light__up">
+                        <div class="light__header">Power</div>
+                        <label class="switch">
+                            <input class="switch__input" type="checkbox">
+                            <span class="switch__slider"></span>
+                        </label>
+                    </div>
+                    <div class="light__down">
+                        <div class="light__down-header">50%</div>
+                        <div class="light__down-text">Brightness</div>
+                    </div>
+                </div>
+                <img class="light__lamp" src="img/lightbulb.svg" alt="lightbulb">
+            </div>
+            <div class="light__bottom">
+                <div class="light__bottom-text">Intensity</div>
+                <div class="light__slidecontainer">
+                    <input class="light__range" type="range" min="0" value="0" max="100">
+                </div>
+                <div class="light__measure">
+                    <img class="light__moon" src="img/moon.svg" alt="moon">
+                    <img class="light__mark" src="img/mark.svg" alt="mark">
+                    <img class="light__mark" src="img/mark.svg" alt="mark">
+                    <img class="light__mark" src="img/mark.svg" alt="mark">
+                    <img class="light__mark" src="img/mark.svg" alt="mark">
+                    <img class="light__sun" src="img/sun.svg" alt="sun">
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__header">Statistic</div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage today</div>
+                    <div class="footer__data">
+                        <span class="footer__num">1.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage this month</div>
+                    <div class="footer__data">
+                        <span class="footer__num">7.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Total working hours</div>
+                    <div class="footer__data">
+                        <span class="footer__num">4</span>
+                        <span class="footer__let">h</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
