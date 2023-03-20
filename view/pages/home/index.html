@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="http://den4da12.beget.tech/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://anasta29.beget.tech/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../reset.css">
     <link rel="stylesheet" href="style.css">
     <title>Amogus228</title>
@@ -33,31 +33,23 @@
                     <div class="weather__text">Tuesday, 13 April 2023</div>
                 </div>
             </div>
-            <button id="btn-toggle" disabled="disabled">Нагрузка...</button>
-            <div>Нагрузка: <span id="field-l">---</span></div>
             <div class="weather__row">
                 <div class="weather__block">
                     <div class="weather__article">Indor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">
-                            <span class="weather__indorTemp">---</span> °C
-                        </div>
+                        <div class="weather__data">30.3 °C</div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Humidity</div>
                     <div class="weather__bg">
-                        <div class="weather__data">
-                            <span class="weather__hum">---</span> °C
-                        </div>
+                        <div class="weather__data">35.7%</div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Outdor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">
-                            <span class="weather__outdorTemp">---</span> °C
-                        </div>
+                        <div class="weather__data">38.3 °C</div>
                     </div>
                 </div>
             </div>
@@ -69,7 +61,7 @@
             <li class="control__item">Kitchen</li>
         </ul>
         <section class="control">
-            <a class="control__tile" href="light.html">
+            <a class="control__tile" href="../light/light.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/lamp.svg" alt="lamp">
                     <label class="switch">
@@ -82,7 +74,7 @@
                     <div class="control__text">90%</div>
                 </div>
             </a>
-            <a class="control__tile" href="#">
+            <a class="control__tile" href="../ac/ac.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/snowflake.png" alt="AC">
                     <label class="switch">
@@ -95,7 +87,7 @@
                     <div class="control__text">25 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="#">
+            <a class="control__tile" href="blinds.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/curtains.svg" alt="blinds">
                     <label class="switch">
@@ -108,7 +100,7 @@
                     <div class="control__text">30 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="#">
+            <a class="control__tile" href="venting.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/ventilation.svg" alt="venting">
                     <label class="switch">
@@ -121,7 +113,7 @@
                     <div class="control__text">50 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="#">
+            <a class="control__tile" href="cv.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/cv.svg" alt="CV">
                     <label class="switch">
@@ -134,7 +126,7 @@
                     <div class="control__text">45 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="#">
+            <a class="control__tile" href="robot.html">
                 <div class="control__up">
                     <img class="control__image" src="../../img/robot.svg" alt="robot">
                     <label class="switch">
@@ -152,54 +144,6 @@
             <button class="footer__btn">Turn off all devices</button>
         </footer>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        let sock = io();
-
-        let indorTemp = document.querySelector('.weather__indorTemp');
-        let hum = document.getElementById('.weather__hum');
-        let outdorTemp = document.getElementById('.weather__outdorTemp');
-        let btnToggle = document.getElementById('btn-toggle');
-
-        let loadEnabled = 0;
-
-        // обработчик события status
-        sock.on('status', data => {
-            if (data) {
-                // если пришли данные температуры
-                if (data.hasOwnProperty('t')) {
-                    // выводим ее
-                    console.log(indorTemp)
-                    indorTemp.innerHTML = data.t;
-                }
-                // влажность
-                if (data.hasOwnProperty('h')) {
-                    console.log(hum)
-                    hum.innerHTML = data.h;
-                }
-                // статус нашего переключателя
-                if (data.hasOwnProperty('l')) {
-                    loadEnabled = parseInt(data.l)
-                    fieldL.innerHTML = loadEnabled ? 'ВКЛ.' : 'ВЫКЛ.';
-
-                    // кнопка для изменения состояния
-                    btnToggle.innerHTML = loadEnabled ? 'ВЫКЛ.' : 'ВКЛ.';
-                    btnToggle.removeAttribute('disabled');
-                }
-            }
-        })
-
-        // при клике на кнопку
-        btnToggle.addEventListener('click', () => {
-            // отсылаем новое состояние
-            sock.emit('toggle', !loadEnabled);
-        });
-
-        // обновляем статус оп таймеру 1 раз в секунду
-        setTimeout(() => {
-            sock.emit('status');
-        }, 1000);
-    </script>
 </body>
 
 </html>

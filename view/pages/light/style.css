@@ -70,12 +70,12 @@ body {
     height: 20px;
     left: -1px;
     top: -1px;
-    border: 1px solid #000000;
     border-radius: 10px;
     background-color: #F0EFF4;
     transition: .4s;
-    cursor: pointer;
+    border: 1px solid #000000;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 /*стиль при фокусе на компонент*/
@@ -202,7 +202,7 @@ body {
 .light__bottom-signs {
     display: flex;
     align-items: center;
-    background-color: rgba(102, 161, 255, 0.502);
+    background-color: rgba(102, 161, 255, 0.5);
 }
 
 .light__header-text {
