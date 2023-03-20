@@ -3,6 +3,7 @@ let sock = io();
 let indorTemp = document.querySelector('.weather__indorTemp');
 let hum = document.getElementById('.weather__hum');
 let outdorTemp = document.getElementById('.weather__outdorTemp');
+let fieldL = document.getElementById('field-l');
 let btnToggle = document.getElementById('btn-toggle');
 
 let loadEnabled = 0;
