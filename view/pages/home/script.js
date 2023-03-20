@@ -13,10 +13,12 @@ sock.on('status', data => {
         // если пришли данные температуры
         if (data.hasOwnProperty('t')) {
             // выводим ее
+            console.log(indorTemp)
             indorTemp.innerHTML = data.t;
         }
         // влажность
         if (data.hasOwnProperty('h')) {
+            console.log(hum)
             hum.innerHTML = data.h;
         }
         // статус нашего переключателя
