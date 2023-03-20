@@ -1,9 +1,9 @@
 let sock = io();
 
-const indorTemp = document.querySelector('.weather__indorTemp');
-const hum = document.getElementById('.weather__hum');
-const outdorTemp = document.getElementById('.weather__outdorTemp');
-const btnToggle = document.getElementById('btn-toggle');
+let indorTemp = document.querySelector('.weather__indorTemp');
+let hum = document.getElementById('.weather__hum');
+let outdorTemp = document.getElementById('.weather__outdorTemp');
+let btnToggle = document.getElementById('btn-toggle');
 
 let loadEnabled = 0;
 
