@@ -155,10 +155,12 @@
     <script src="/socket.io/socket.io.js"></script>
     <!-- <script src="script.js"></script> -->
     <script>
-        const net = require('net');
-        const app = require('express')();
-        const http = require('http').createServer(app);
-        const io = require('socket.io')(http);
+        let sock = io();
+
+        let net = require('net');
+        let app = require('express')();
+        let http = require('http').createServer(app);
+        let io = require('socket.io')(http);
 
         // фейковое хранилище всех подключенных ESP
         // в реальной жизни вам понадобится различать их
