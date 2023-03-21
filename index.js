@@ -104,7 +104,7 @@ function handler(packet) {
 
 // эту часть я поручаю nginx
 // но для краткости и удобства для статьи я решил обойтись средствами node.js
-app.use(express.static('view/pages'));
+app.use(express.static('view'));
 
 
 app.get('/', (req, res) => {
@@ -116,7 +116,7 @@ app.get('/ac', (req, res) => {
 });
 
 app.get('/cv', (req, res) => {
-    res.sendFile(__dirname + '/cv/index.html');
+    res.sendFile(__dirname + '/view/pages/cv/index.html');
 });
 
 app.get('/light', (req, res) => {
