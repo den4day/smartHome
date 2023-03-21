@@ -1,5 +1,6 @@
 const net = require('net');
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
@@ -52,7 +53,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
-server.listen(3030, '192.168.115.108');
+// server.listen(3030, '192.168.115.108');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
@@ -103,9 +104,23 @@ function handler(packet) {
 
 // эту часть я поручаю nginx
 // но для краткости и удобства для статьи я решил обойтись средствами node.js
+app.use(express.static('view/pages'));
+
+
 app.get('/', (req, res) => {
-    // отдаем статик файл в браузер
     res.sendFile(__dirname + '/view/pages/home/index.html');
+});
+
+app.get('/ac', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/ac/index.html');
+});
+
+app.get('/cv', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/cv/index.html');
+});
+
+app.get('/ac', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/light/index.html');
 });
 
 // событие при подключении нового web socket
