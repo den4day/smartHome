@@ -37,19 +37,25 @@
                 <div class="weather__block">
                     <div class="weather__article">Indor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">30.3 °C</div>
+                        <div class="weather__data">
+                            <span class="weather__tempIn">---</span> °C
+                        </div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Humidity</div>
                     <div class="weather__bg">
-                        <div class="weather__data">35.7%</div>
+                        <div class="weather__data">
+                            <span class="weather__hum">---</span>%
+                        </div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Outdor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">38.3 °C</div>
+                        <div class="weather__data">
+                            <span class="weather__tempOut">---</span> °C
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,6 +150,8 @@
             <button class="footer__btn">Turn off all devices</button>
         </footer>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/home/script.js"></script>
 </body>
 
 </html>

@@ -131,6 +131,10 @@ app.get('/venting', (req, res) => {
     res.sendFile(__dirname + '/view/pages/venting/index.html');
 });
 
+app.get('/robot', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/robot/index.html');
+});
+
 
 // событие при подключении нового web socket
 io.on('connection', sock => {
