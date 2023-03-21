@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/light.css">
-    <title>Light Control</title>
+    <link rel="stylesheet" href="css/blinds.css">
+    <title>Blinds Control</title>
 </head>
 
 <body>
@@ -17,38 +17,37 @@
                 <a class="header__backwards" href="index.html">
                     <img class="header__arrow" src="../../img/arrow.svg" alt="arrow">
                 </a>
-                <div class="header__words">Light Control</div>
+                <div class="header__words">Blinds Control</div>
             </nav>
         </header>
-        <section class="light">
-            <div class="light__section">
-                <div class="light__left">
-                    <div class="light__up">
-                        <div class="light__header">Power</div>
+        <section class="blinds">
+            <div class="blinds__section">
+                <div class="blinds__left">
+                    <div class="blinds__up">
+                        <div class="blinds__header">Power</div>
                         <label class="switch">
                             <input class="switch__input" type="checkbox">
                             <span class="switch__slider"></span>
                         </label>
                     </div>
-                    <div class="light__down">
-                        <div class="light__down-header">50%</div>
-                        <div class="light__down-text">Brightness</div>
+                    <div class="blinds__down">
+                        <div class="blinds__down-header">100 %</div>
+                        <div class="blinds__down-text">Position</div>
                     </div>
+
                 </div>
-                <img class="light__lamp" src="../../img/lightbulb.svg" alt="lightbulb">
+                <img class="blinds__curtans" src="../../img/curtains.svg" alt="blinds">
             </div>
-            <div class="light__bottom">
-                <div class="light__bottom-text">Intensity</div>
-                <div class="light__slidecontainer">
-                    <input class="light__range" type="range" min="0" value="0" max="100" step = "20">
-                </div>
-                <div class="light__measure">
-                    <img class="light__moon" src="../../img/moon.svg" alt="moon">
-                    <img class="light__mark" src="../../img/mark.svg" alt="mark">
-                    <img class="light__mark" src="../../img/mark.svg" alt="mark">
-                    <img class="light__mark" src="../../img/mark.svg" alt="mark">
-                    <img class="light__mark" src="../../img/mark.svg" alt="mark">
-                    <img class="light__sun" src="../../img/sun.svg" alt="sun">
+            <div class="blinds__bottom">
+                <div class="blinds__bottom-text">Control</div>
+                <div class="blinds__footer">
+                    <label>
+                        <input class="blinds__input" type="number" min = "0" max = "100">
+                    </label>
+                    <div class="blinds__changes">
+                        <button class="blinds__indec">−</button>
+                        <button class="blinds__indec">+</button>
+                    </div>
                 </div>
             </div>
         </section>
