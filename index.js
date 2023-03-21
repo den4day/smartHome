@@ -116,12 +116,21 @@ app.get('/ac', (req, res) => {
 });
 
 app.get('/cv', (req, res) => {
-    res.sendFile(__dirname + '/view/pages/cv/index.html');
+    res.sendFile(__dirname + '/cv/index.html');
 });
 
-app.get('/ac', (req, res) => {
+app.get('/light', (req, res) => {
     res.sendFile(__dirname + '/view/pages/light/index.html');
 });
+
+app.get('/blinds', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/blinds/index.html');
+});
+
+app.get('/venting', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/venting/index.html');
+});
+
 
 // событие при подключении нового web socket
 io.on('connection', sock => {
