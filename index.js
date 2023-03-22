@@ -53,7 +53,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
- server.listen(3030, '192.168.1.103');
+//  server.listen(3030, '192.168.1.103');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
