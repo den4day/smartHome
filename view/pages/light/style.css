@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
     font-family: "Montserrat", serif;
     background-color: #F0EFF4;
 }
@@ -153,13 +154,95 @@ body {
 .light__range {
     width: 100%;
     margin: 0px 10px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.light__range:focus {
+    outline: none;
+}
+
+
+/* for Chrome/Opera/Safari */
+.light__range::-webkit-slider-runnable-track {
+    border-radius: 10px;
+    height: 10px;
+    border: 1px solid #000000;
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+.light__range::-webkit-slider-thumb {
+    background: #F0EFF4;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    margin-top: -6px;
+}
+
+
+/* for Firefox */
+.light__range::-moz-range-track {
+    border-radius: 10px;
+    height: 10px;
+    border: 1px solid #000000;
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+.light__range::-moz-range-thumb {
+    background: #F0EFF4;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+
+.light__range::-moz-range-progress {
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+
+/* IE/Edge */
+.light__range::-ms-thumb {
+    background: #F0EFF4;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+
+.light__range::-ms-track {
+    border-radius: 10px;
+    height: 10px;
+    border: 1px solid #000000;
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+.light__range::-ms-fill-lower {
+    background-color: rgba(102, 161, 255, 0.5);
+}
+
+.light__range::-ms-fill-upper {
+    border-radius: 10px;
+    height: 10px;
+    border: 1px solid #000000;
+    background-color: rgba(102, 161, 255, 0.5);
 }
 
 .light__measure {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
+    padding: 0px 15px;
 }
 
 .light__moon {
@@ -176,6 +259,8 @@ body {
 .light__mark {
     width: 2px;
     height: 10px;
+    border-radius: 10px;
+    background-color: rgba(102, 161, 255, 0.5);
 }
 
 .light__bottom-signs {
@@ -208,9 +293,9 @@ body {
 .footer__hr {
     height: 2px;
     margin: 20px 0;
-    border: 1px solid #F0EFF4;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
-    background-color: #F0EFF4;
+    background-color: #FFFFFF;
 }
 
 .footer__row {
