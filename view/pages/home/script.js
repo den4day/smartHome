@@ -6,6 +6,8 @@ let hum = document.querySelector('.weather__hum');
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
 
+let btnToggle = document.getElementById('btn-toggle');
+var loadEnabled = 0;
 
 tabsBtn.forEach(item =>
     item.addEventListener('click', () => {
@@ -26,7 +28,6 @@ tabsBtn.forEach(item =>
 
 document.querySelector(".control__item").click();
 
-
 // обработчик события status
 sock.on('status', data => {
     if (data) {
@@ -39,10 +40,21 @@ sock.on('status', data => {
         if (data.hasOwnProperty('h')) {
             hum.innerHTML = data.h;
         }
+        // статус нашего переключателя
+        if (data.hasOwnProperty('l')) {
+            loadEnabled = parseInt(data.l)
+            fieldL.innerHTML = loadEnabled ? 'ВКЛ.' : 'ВЫКЛ.';
+
+            // кнопка для изменения состояния
+            btnToggle.innerHTML = loadEnabled ? 'ВЫКЛ.' : 'ВКЛ.';
+            btnToggle.removeAttribute('disabled');
+        }
     }
-})
+});
+
+
 
 // обновляем статус оп таймеру 1 раз в секунду
-setInterval(() => {
-    sock.emit('status');
-}, 2000);
+// setInterval(() => {
+//     sock.emit('status');
+// }, 2000);
