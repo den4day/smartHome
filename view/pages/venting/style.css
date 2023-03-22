@@ -1,27 +1,8 @@
-@font-face {
-    font-family: "Montserrat";
-    src: local("Montserrat Regular"),
-        local("Montserrat-Regular"),
-        url("../fonts/Montserrat-Regular.svg") format("svg"),
-        url("../fonts/Montserrat-Regular.woff") format("woff"),
-        url("../fonts/Montserrat-Regular.woff2") format("woff2");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Montserrat";
-    src: local("Montserrat Bold"),
-        local("Montserrat-Bold"),
-        url("../fonts/Montserrat-Bold.woff") format("woff"),
-        url("../fonts/Montserrat-Bold.woff2") format("woff2"),
-        url("../fonts/Montserrat-Bold.svg") format("svg");
-    font-weight: 700;
-}
-
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
     font-family: "Montserrat", serif;
     background-color: #F0EFF4;
 }
@@ -196,58 +177,43 @@ body {
     background-color: rgba(102, 161, 255, 0.5);
 }
 
-.footer__hr {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    padding: 0;
-    height: 2px;
-    width: 280px;
-    border: none;
-    border-top: 1px solid #F0EFF4;
-}
 
 .footer {
     background-color: rgba(102, 161, 255, 0.5);
     border-radius: 50px 50px 0px 0px;
-    padding-bottom: 50px;
+}
+
+.footer .container {
+    padding: 40px 20px 20px;
 }
 
 .footer__header {
     font-size: 16px;
     font-weight: 700;
-    margin-top: 15px;
     margin-bottom: 40px;
 }
 
-/* .footer__line {
-} */
+.footer__hr {
+    height: 2px;
+    margin: 20px 0;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
 
 .footer__row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: baseline;
 }
-
-/* .footer__usage {
-}
-.footer__data {
-} */
 
 .footer__num {
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     color: #F0EFF4;
 }
 
 .footer__let {
-    font-weight: 400;
     font-size: 12px;
-}
-
-.footer__hr {
-    border-radius: 10px;
-    height: 2px;
-    border: 1px solid #F0EFF4;
-    background-color: #F0EFF4;
+    font-weight: 400;
 }

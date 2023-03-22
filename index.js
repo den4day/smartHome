@@ -53,7 +53,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
-// server.listen(3030, '192.168.115.108');
+ server.listen(3030, '192.168.1.103');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
@@ -104,7 +104,7 @@ function handler(packet) {
 
 // эту часть я поручаю nginx
 // но для краткости и удобства для статьи я решил обойтись средствами node.js
-app.use(express.static('view/pages'));
+app.use(express.static('view'));
 
 
 app.get('/', (req, res) => {
@@ -116,7 +116,7 @@ app.get('/ac', (req, res) => {
 });
 
 app.get('/cv', (req, res) => {
-    res.sendFile(__dirname + '/cv/index.html');
+    res.sendFile(__dirname + '/view/pages/cv/index.html');
 });
 
 app.get('/light', (req, res) => {
@@ -129,6 +129,10 @@ app.get('/blinds', (req, res) => {
 
 app.get('/venting', (req, res) => {
     res.sendFile(__dirname + '/view/pages/venting/index.html');
+});
+
+app.get('/robot', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/robot/index.html');
 });
 
 

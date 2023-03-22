@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/ac.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="pages/ac/style.css">
     <title>AC Control</title>
 </head>
 
@@ -14,8 +15,8 @@
     <div class="container">
         <header class="header">
             <nav class="header__nav">
-                <a class="header__backwards" href="index.html">
-                    <img class="header__arrow" src="../../img/arrow.svg" alt="arrow">
+                <a class="header__backwards" href="/">
+                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
                 </a>
                 <div class="header__words">AC Control</div>
             </nav>
@@ -36,17 +37,17 @@
                     </div>
 
                 </div>
-                <img class="air__snowflake" src="../../img/snowflake.png" alt="snowflake">
+                <img class="air__snowflake" src="img/snowflake.png" alt="snowflake">
             </div>
             <div class="air__bottom">
                 <div class="air__bottom-text">Mode</div>
                 <div class="air__footer">
-                    <select class="modifications" name="air__mode" >
-                        <option value="cool" selected>Cool</option>
-                        <option value="heat">Heat</option>
-                        <option value="fan">Fan</option>
-                        <option value="dry">Dry</option>
-                        <option value="auto">Auto</option>
+                    <select class="air__select" name="air__mode">
+                        <option class="air__option" value="cool" selected>Cool</option>
+                        <option class="air__option" value="heat">Heat</option>
+                        <option class="air__option" value="fan">Fan</option>
+                        <option class="air__option" value="dry">Dry</option>
+                        <option class="air__option" value="auto">Auto</option>
                     </select>
                     <div class="air__changes">
                         <button class="air__indec">+</button>

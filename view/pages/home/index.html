@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="http://anasta29.beget.tech/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../reset.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Home</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="pages/home/style.css">
+    <title>Smart Home</title>
 </head>
 
 <body>
     <div class="container">
         <header class="header">
             <nav class="header__nav">
-                <img class="header__burger" src="../../img/burgerMenu.svg" alt="burger-menu">
-                <a class="header__avatar" href="ac.html">
-                    <img class="header__image" src="../../img/avatar.svg" alt="avatar">
+                <img class="header__burger" src="img/burgerMenu.svg" alt="burger-menu">
+                <a class="header__avatar" href="/">
+                    <img class="header__image" src="img/avatar.svg" alt="avatar">
                 </a>
             </nav>
             <div class="header__greet">
@@ -27,7 +27,7 @@
         </header>
         <article class="weather">
             <div class="weather__container">
-                <img class="weather__img" src="../../img/cloudy.svg" alt="weather">
+                <img class="weather__img" src="img/cloudy.svg" alt="weather">
                 <div class="weather__info">
                     <div class="weather__header">Cloudy</div>
                     <div class="weather__text">Tuesday, 13 April 2023</div>
@@ -37,33 +37,39 @@
                 <div class="weather__block">
                     <div class="weather__article">Indor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">30.3 °C</div>
+                        <div class="weather__data">
+                            <span class="weather__tempIn">---</span> °C
+                        </div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Humidity</div>
                     <div class="weather__bg">
-                        <div class="weather__data">35.7%</div>
+                        <div class="weather__data">
+                            <span class="weather__hum">---</span>%
+                        </div>
                     </div>
                 </div>
                 <div class="weather__block">
                     <div class="weather__article">Outdor Temp</div>
                     <div class="weather__bg">
-                        <div class="weather__data">38.3 °C</div>
+                        <div class="weather__data">
+                            <span class="weather__tempOut">---</span> °C
+                        </div>
                     </div>
                 </div>
             </div>
         </article>
         <ul class="control__list">
-            <li class="control__item control__item--active">Living Room</li>
-            <li class="control__item">Bedroom</li>
-            <li class="control__item">Dinning Room</li>
-            <li class="control__item">Kitchen</li>
+            <li class="control__item" data-tab="1">Living Room</li>
+            <li class="control__item" data-tab="2">Bedroom</li>
+            <li class="control__item" data-tab="3">Dinning Room</li>
+            <li class="control__item" data-tab="4">Сourtyard</li>
         </ul>
         <section class="control">
-            <a class="control__tile" href="../light/index.html">
+            <a class="control__tile group1 group2 group3" href="/light">
                 <div class="control__up">
-                    <img class="control__image" src="../img/lamp.svg" alt="lamp">
+                    <img class="control__image" src="img/lamp.svg" alt="lamp">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
@@ -74,9 +80,9 @@
                     <div class="control__text">90%</div>
                 </div>
             </a>
-            <a class="control__tile" href="../ac/index.html">
+            <a class="control__tile group1 group2" href="/ac">
                 <div class="control__up">
-                    <img class="control__image" src="../../img/snowflake.png" alt="AC">
+                    <img class="control__image" src="img/snowflake.png" alt="AC">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
@@ -87,9 +93,9 @@
                     <div class="control__text">25 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="../blinds/index.html">
+            <a class="control__tile group1 group2" href="blinds">
                 <div class="control__up">
-                    <img class="control__image" src="../../img/curtains.svg" alt="blinds">
+                    <img class="control__image" src="img/curtains.svg" alt="blinds">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
@@ -100,22 +106,22 @@
                     <div class="control__text">30 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="venting.html">
+            <a class="control__tile group1 group3" href="/venting">
                 <div class="control__up">
-                    <img class="control__image" src="../../img/ventilation.svg" alt="venting">
+                    <img class="control__image" src="img/ventilation.svg" alt="venting">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
-                <div class="control__info">
+                <div class="control__info group1">
                     <div class="control__header">Venting</div>
                     <div class="control__text">50 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="cv.html">
+            <a class="control__tile group1 group4" href="/cv">
                 <div class="control__up">
-                    <img class="control__image" src="../../img/cv.svg" alt="CV">
+                    <img class="control__image" src="img/cv.svg" alt="CV">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
@@ -126,9 +132,9 @@
                     <div class="control__text">45 °C</div>
                 </div>
             </a>
-            <a class="control__tile" href="robot.html">
+            <a class="control__tile group1" href="/robot">
                 <div class="control__up">
-                    <img class="control__image" src="../../img/robot.svg" alt="robot">
+                    <img class="control__image" src="img/robot.svg" alt="robot">
                     <label class="switch">
                         <input class="switch__input" type="checkbox">
                         <span class="switch__slider"></span>
@@ -144,6 +150,8 @@
             <button class="footer__btn">Turn off all devices</button>
         </footer>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/home/script.js"></script>
 </body>
 
 </html>

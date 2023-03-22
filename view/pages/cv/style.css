@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error,
+.loader {
+    padding: 8px 20px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.error {
+    background-color: #ffe9e9;
+    color: #ff7171;
+    border: 1px solid #ff7171;
+}
+
+.loader {
+    opacity: 0.6;
+    position: absolute;
+    background-color: #e9ffeb;
+    color: #34dc51;
+    border: 1px solid #34dc51;
+}
+
+canvas {
+    position: absolute;
+}
