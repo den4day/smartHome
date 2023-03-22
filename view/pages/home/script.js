@@ -43,6 +43,6 @@ sock.on('status', data => {
 })
 
 // обновляем статус оп таймеру 1 раз в секунду
- setInterval(() => {
-     sock.emit('status');
- }, 2000);
+// setInterval(() => {
+//     sock.emit('status');
+// }, 2000);
