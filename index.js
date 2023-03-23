@@ -19,7 +19,7 @@ let server = net.createServer(sock => {
     esps.push(sock);
 
     // подписываем на событие прихода данных по сокету
-    sock.on('data', (data) => {
+    sock.on('data', data => {
         // складываем в буфер
         // в реальной жизни нужно учитывать если платок больше 1ой
         // на каждую нужен отдельный буфер
@@ -38,7 +38,7 @@ let server = net.createServer(sock => {
 
     // в реальной жизни, в случае ошибки на сокете,
     // обрабатываем ее, например отключаем сокет и удаляем из хранилища
-    sock.on('error', (err) => {
+    sock.on('error', err => {
         console.log(err);
     });
 
@@ -53,7 +53,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
-server.listen(3030, '192.168.1.103');
+server.listen(3030, '192.168.43.162');
 
 // вспомогательная функция для отправки пакета
 // вспомогательная функция для отправки пакета
@@ -138,12 +138,12 @@ app.get('/robot', (req, res) => {
 
 
 // событие при подключении нового web socket
-io.on('connection', function (sock) {
+io.on('connection', sock => {
     // если пришла команда status
     sock.on('status', () => {
         // просто отправляем ее на наш wifi модуль
         send_packet('status');
-    }).on('toggle', (data) => {
+    }).on('toggle', data => {
         // для команды toggle меняем название команды
         // и добавляем параметр в том формате в котором его ожидает наш esp-01 модуль
         send_packet('load&' + (data ? 'on' : 'off'));
