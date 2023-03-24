@@ -134,14 +134,12 @@ app.get('/robot', (req, res) => {
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
-// событие при подключении нового web socket
-io.on('connection', sock => {
-    // если пришла команда status
-    sock.on('status', () => {
-        // просто отправляем ее на наш wifi модуль
-        send_packet('status');
-    });
-});
+let temp = "";
 
-    socket.emit('message', 'connect from server');
+io.on('connect', socket => {
+    console.log('new user connected');
+    socket.on("data", data => {
+        console.log(data);
+        socket.emit("sendToHomePage", data);
+    });
 });
