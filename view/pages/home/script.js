@@ -1,4 +1,4 @@
-let sock = io();
+socket = io("http://localhost:3000");
 
 let temp = document.querySelector('.weather__tempIn');
 let hum = document.querySelector('.weather__hum');
@@ -6,6 +6,8 @@ let hum = document.querySelector('.weather__hum');
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
 
+let btnToggle = document.getElementById('btn-toggle');
+var loadEnabled = 0;
 
 tabsBtn.forEach(item =>
     item.addEventListener('click', () => {
@@ -27,22 +29,8 @@ tabsBtn.forEach(item =>
 document.querySelector(".control__item").click();
 
 
-// обработчик события status
-sock.on('status', data => {
-    if (data) {
-        // если пришли данные температуры
-        if (data.hasOwnProperty('t')) {
-            // выводим ее
-            temp.innerHTML = data.t;
-        }
-        // влажность
-        if (data.hasOwnProperty('h')) {
-            hum.innerHTML = data.h;
-        }
-    }
-})
+io.on('connect', socket => {
+    console.log('connect form home page');
 
-// обновляем статус оп таймеру 1 раз в секунду
-// setInterval(() => {
-//     sock.emit('status');
-// }, 2000);
+    socket.on("data", data => console.log(data));
+});

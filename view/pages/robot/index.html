@@ -6,11 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="/pages/robot/style.css">
+    <title>Robot Control</title>
 </head>
 
 <body>
+    <div class="container">
+        <header class="header">
+            <nav class="header__nav">
+                <a class="header__backwards" href="/">
+                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
+                </a>
+                <div class="header__words">Robot Control</div>
+            </nav>
+        </header>
+        <section class="robot">
+            <div class="robot__section">
+                <div class="robot__left">
+                    <div class="robot__up">
+                        <div class="robot__header">Power</div>
+                        <label class="switch">
+                            <input class="switch__input" type="checkbox">
+                            <span class="switch__slider"></span>
+                        </label>
+                    </div>
+                    <div class="robot__down">
+                        <div class="robot__down-header">80 %</div>
+                        <div class="robot__down-text">Charge</div>
+                    </div>
 
+                </div>
+                <img class="robot__img" src="img/robot.svg" alt="robot">
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__header">Statistic</div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage today</div>
+                    <div class="footer__data">
+                        <span class="footer__num">1.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage this month</div>
+                    <div class="footer__data">
+                        <span class="footer__num">7.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Total working hours</div>
+                    <div class="footer__data">
+                        <span class="footer__num">4</span>
+                        <span class="footer__let">h</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

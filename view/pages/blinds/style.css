@@ -159,15 +159,30 @@ body {
     justify-content: space-between;
 }
 
-.blinds__input {
+.blinds__label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     background-color: rgba(102, 161, 255, 0.5);
     width: 140px;
     height: 40px;
     border: 1px solid #000000;
-    padding: 10px 20px;
+    padding: 0px 15px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 700;
+}
+
+.blinds__input {
+    font-weight: 700;
+    padding-right: 5px;
+    width: 100%;
+    background-color: rgba(102, 161, 255, 0);
+    padding: 10px 0px;
+}
+
+.blinds__percent {
+    margin-left: auto;
 }
 
 .blinds__changes {

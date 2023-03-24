@@ -1,4 +1,4 @@
-const net = require('net');
+let PORT = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
@@ -9,7 +9,6 @@ const io = require('socket.io')(http);
 // вы можете при подключении передавать информацию, например уникальный номер
 let esps = [];
 
-let data = {Name: '3224'};
 // буфер входящих данных
 let packet = '';
 
@@ -54,7 +53,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
- server.listen(3030, '192.168.43.162');
+ server.listen(3030, '192.168.1.103');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
@@ -64,7 +63,6 @@ function send_packet(data) {
         for (const esp of esps) {
             try {
                 esp.write(data + '\n');
-                console.log('123')
             } catch (err) {
                 console.log(err);
             }
@@ -104,10 +102,7 @@ function handler(packet) {
     }
 }
 
-// эту часть я поручаю nginx
-// но для краткости и удобства для статьи я решил обойтись средствами node.js
 app.use(express.static('view'));
-
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/view/pages/home/index.html');
@@ -137,6 +132,7 @@ app.get('/robot', (req, res) => {
     res.sendFile(__dirname + '/view/pages/robot/index.html');
 });
 
+server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 // событие при подключении нового web socket
 io.on('connection', sock => {
@@ -147,12 +143,5 @@ io.on('connection', sock => {
     });
 });
 
-io.on('sendData', () =>{
-    console.log('Data sended');
-    io.emit('dataSending', {data: 'Hello World'});
-});
-
-// запускаем наш web сервер
-http.listen(3000, () => {
-    console.log('listening on *:3000');
+    socket.emit('message', 'connect from server');
 });
