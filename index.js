@@ -9,6 +9,7 @@ const io = require('socket.io')(http);
 // вы можете при подключении передавать информацию, например уникальный номер
 let esps = [];
 
+let data = {Name: '3224'};
 // буфер входящих данных
 let packet = '';
 
@@ -53,7 +54,7 @@ let server = net.createServer(sock => {
 });
 
 // указываем какой порт и ip адрес нужно начать слушать нашему TCP серверу
- server.listen(3030, '192.168.1.103');
+ server.listen(3030, '192.168.43.162');
 
 // вспомогательная функция для отправки пакета
 function send_packet(data) {
@@ -63,6 +64,7 @@ function send_packet(data) {
         for (const esp of esps) {
             try {
                 esp.write(data + '\n');
+                console.log('123')
             } catch (err) {
                 console.log(err);
             }
@@ -143,6 +145,11 @@ io.on('connection', sock => {
         // просто отправляем ее на наш wifi модуль
         send_packet('status');
     });
+});
+
+io.on('sendData', () =>{
+    console.log('Data sended');
+    io.emit('dataSending', {data: 'Hello World'});
 });
 
 // запускаем наш web сервер
