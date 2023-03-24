@@ -1,7 +1,6 @@
 const socket = io("http://localhost");
 
-io.on('connect', socket => {
-    console.log('new user connected');
-    socket.on("data", data => console.log(data));
-    socket.emit('message', 'connect from server');
-});
+// io.on('connect', socket => {
+//     console.log('light connected');
+//     socket.on('sendDataToHome', data => console.log(data.name));
+// });

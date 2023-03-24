@@ -46,8 +46,11 @@ app.get('/robot', (req, res) => {
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
+let temp = "abc";
+
 io.on('connect', socket => {
     console.log('new user connected');
-
-    socket.emit('message', 'connect from server');
+    socket.on("data", data => {
+        console.log(data);
+    });
 });
