@@ -6,19 +6,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="/pages/cv/style.css">
     <title>CV</title>
 </head>
 
 <body>
-    <h1>Facial Detection</h1>
-    <div class="wrapper">
-        <div class="loader">Распознаю ваше лицо (ಠ_ಠ)...</div>
-        <video id="video" width="720" height="576" autoplay muted></video>
+    <div class="container">
+        <header class="header">
+            <nav class="header__nav">
+                <a class="header__backwards" href="/">
+                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
+                </a>
+                <div class="header__words">CV Control</div>
+            </nav>
+        </header>
+        <section class="cv">
+            <div class="cv__section">
+                <div class="cv__left">
+                    <div class="cv__up">
+                        <div class="cv__header">Power</div>
+                        <label class="switch">
+                            <input class="switch__input" type="checkbox">
+                            <span class="switch__slider"></span>
+                        </label>
+                    </div>
+                    <div class="cv__down">
+                        <div class="cv__down-header">45 °C</div>
+                        <div class="cv__down-text">Angel</div>
+                    </div>
+
+                </div>
+                <img class="cv__img" src="img/cv.svg" alt="cv">
+            </div>
+            <div class="cv__bottom">
+                <h1>Facial Detection</h1>
+                <div class="wrapper">
+                    <div class="loader">Распознаю ваше лицо (ಠ_ಠ)...</div>
+                    <video class="video" autoplay muted></video>
+                </div>
+                <script src="/pages/cv/face-api.min.js"></script>
+                <script src="/pages/cv/main.js"></script>
+            </div>
+        </section>
     </div>
-    <script src="/pages/cv/face-api.min.js"></script>
-    <script src="/pages/cv/main.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__header">Statistic</div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage today</div>
+                    <div class="footer__data">
+                        <span class="footer__num">1.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Usage this month</div>
+                    <div class="footer__data">
+                        <span class="footer__num">7.1</span>
+                        <span class="footer__let">kWh</span>
+                    </div>
+                </div>
+                <hr class="footer__hr">
+            </div>
+            <div class="footer__line">
+                <div class="footer__row">
+                    <div class="footer__usage">Total working hours</div>
+                    <div class="footer__data">
+                        <span class="footer__num">4</span>
+                        <span class="footer__let">h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
