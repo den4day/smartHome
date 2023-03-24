@@ -1,6 +1,7 @@
+let sock = io();
 
-// let temp = document.querySelector('.weather__tempIn');
-// let hum = document.querySelector('.weather__hum');
+let temp = document.querySelector('.weather__tempIn');
+let hum = document.querySelector('.weather__hum');
 
 // let tabsBtn = document.querySelectorAll('.control__item');
 // let tabsTile = document.querySelectorAll('.control__tile');
@@ -25,12 +26,35 @@
 //     })
 // );
 
-// document.querySelector(".control__item").click();
+document.querySelector(".control__item").click();
 
-const socket = io("http://localhost:3000");
+// обработчик события status
+sock.on('status', data => {
+    if (data) {
+        // если пришли данные температуры
+        if (data.hasOwnProperty('t')) {
+            // выводим ее
+            temp.innerHTML = data.t;
+        }
+        // влажность
+        if (data.hasOwnProperty('h')) {
+            hum.innerHTML = data.h;
+        }
+        // статус нашего переключателя
+        if (data.hasOwnProperty('l')) {
+            loadEnabled = parseInt(data.l)
+            fieldL.innerHTML = loadEnabled ? 'ВКЛ.' : 'ВЫКЛ.';
 
-console.log('test');
-socket.on('sendToHomePage', data => {
-    console.log("neData");
-    console.log(data);
+            // кнопка для изменения состояния
+            btnToggle.innerHTML = loadEnabled ? 'ВЫКЛ.' : 'ВКЛ.';
+            btnToggle.removeAttribute('disabled');
+        }
+    }
 });
+
+
+
+// обновляем статус оп таймеру 1 раз в секунду
+// setInterval(() => {
+//     sock.emit('status');
+// }, 2000);
