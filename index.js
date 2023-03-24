@@ -13,7 +13,9 @@ const io = require("socket.io")(server, {
     allowEIO3: true,
 });
 
-let a = 1
+let a = 1;
+let b = 2;
+let c = 4;
 
 
 app.use(express.static('view'));
@@ -33,7 +35,7 @@ io.on('connect', socket => {
     // socket.on('esp', data => console.log(data));
     // socket.emit('change', "someParams");
 
-    socket.emit('message', `hum: ${a}`);
+    socket.emit('message', `hum: '${a}', temp: '${b}', light: '${c}'`);
     socket.on("data", data => console.log(data));
     // socket.on('message', data => {
     //     console.log(data);
