@@ -6,7 +6,6 @@ let server = http.Server(app);
 const io = require("socket.io")(server, {
     cors: {
         origin: "*",
-        methods: ["GET", "POST"],
         transports: ["websocket", "polling"],
         credentials: true,
     },
@@ -46,12 +45,16 @@ app.get('/robot', (req, res) => {
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
-let temp = "";
 
-io.on('connect', socket => {
+
+io.on('connect', (socket) => {
     console.log('new user connected');
-    socket.on("data", data => {
-        console.log(data);
-        socket.emit("sendToHomePage", data);
-    });
+    socket.on("data", (data) => {
+            console.log(data);
+            var obj = JSON.parse(JSON.stringify(data));
+            var temp = parseInt(obj.temp);
+            var hum = parseInt(obj.hum);
+            console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
+            
+        });
 });
