@@ -46,15 +46,30 @@ app.get('/robot', (req, res) => {
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
+var temp;
+var hum;
+
+
 
 io.on('connect', (socket) => {
     console.log('new user connected');
     socket.on("data", (data) => {
-            console.log(data);
-            var obj = JSON.parse(JSON.stringify(data));
-            var temp = parseInt(obj.temp);
-            var hum = parseInt(obj.hum);
-            console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
-            
+        console.log(data);
+
+        var obj = JSON.parse(JSON.stringify(data));
+
+        
+        var temp = parseInt(obj.temp);
+        var hum = parseInt(obj.hum);
+
+        console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
+
+        const response = {
+            Hum: hum,
+            Temp: temp
+         };
+         socket.emit('response', JSON.stringify(response));
+         console.log('response sent!');
         });
+    
 });
