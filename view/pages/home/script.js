@@ -1,4 +1,3 @@
-
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
 
@@ -32,5 +31,3 @@ socket.on("sendToHomePage", data => {
     temp.textContent = obj.temp;
     hum.textContent = obj.hum;
 });
-
-
