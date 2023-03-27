@@ -1,13 +1,5 @@
-let sock = io();
-
-let temp = document.querySelector('.weather__tempIn');
-let hum = document.querySelector('.weather__hum');
-
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
-
-let btnToggle = document.getElementById('btn-toggle');
-var loadEnabled = 0;
 
 tabsBtn.forEach(item =>
     item.addEventListener('click', () => {
@@ -19,7 +11,6 @@ tabsBtn.forEach(item =>
             tabsBtn.forEach(item => item.classList.remove('control__item--active'));
             tabsTile.forEach(item => item.classList.remove('control__tile--active'));
 
-
             currentBtn.classList.add('control__item--active');
             setTimeout(() => currentTab.forEach(item => item.classList.add('control__tile--active')), 200);
         }
@@ -28,33 +19,14 @@ tabsBtn.forEach(item =>
 
 document.querySelector(".control__item").click();
 
-// обработчик события status
-sock.on('status', data => {
-    if (data) {
-        // если пришли данные температуры
-        if (data.hasOwnProperty('t')) {
-            // выводим ее
-            temp.innerHTML = data.t;
-        }
-        // влажность
-        if (data.hasOwnProperty('h')) {
-            hum.innerHTML = data.h;
-        }
-        // статус нашего переключателя
-        if (data.hasOwnProperty('l')) {
-            loadEnabled = parseInt(data.l)
-            fieldL.innerHTML = loadEnabled ? 'ВКЛ.' : 'ВЫКЛ.';
+let socket = io("http://localhost:3000");
 
-            // кнопка для изменения состояния
-            btnToggle.innerHTML = loadEnabled ? 'ВЫКЛ.' : 'ВКЛ.';
-            btnToggle.removeAttribute('disabled');
-        }
-    }
+let temp = document.querySelector('.weather__tempIn');
+let hum = document.querySelector('.weather__hum');
+
+socket.on("tempAndHum", dataHome => {
+    // let obj = JSON.parse(JSON.stringify(data))
+    console.log(dataHome);
+    temp.textContent = dataHome.temp;
+    hum.textContent = dataHome.hum;
 });
-
-
-
-// обновляем статус оп таймеру 1 раз в секунду
-// setInterval(() => {
-//     sock.emit('status');
-// }, 2000);
