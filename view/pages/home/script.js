@@ -31,7 +31,6 @@ socket.on("sendToHomePage", data => {
 
     temp.textContent = obj.temp;
     hum.textContent = obj.hum;
-
 });
 
 
