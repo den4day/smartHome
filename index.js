@@ -66,9 +66,9 @@ io.on('connect', (socket) => {
     setInterval(() => socket.emit('sendToHomePage', {"temp": temp, "hum": hum}), 5000);
 
     socket.on('sendLightRange', data =>{
-        // let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
-        
-        // response.lightStatus = parseInt(data);       // Вписывание полей 
+        let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
+        response.power = data;       // Вписывание полей
+        response.brightness =  
         console.log(data);
     }); 
 });
