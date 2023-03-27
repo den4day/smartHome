@@ -54,29 +54,63 @@ app.get('/signup', (req, res) => {
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
-let temp = 0; // переменная для хранения температуры
-let hum = 0;  // переменная для хранения влажности 
-let response = {};
+let dataHome = {
+    temp: 0,
+    hum: 0,
+    powerLight: 0,
+    powerAC: 0,
+    powerBlinds: 0,
+    powerVenting: 0,
+    powerCV: 0,
+    powerRobot: 0
+};
+
+let dataLight = {
+    powerLight: 0,
+    brightness: 0
+};
+
+let dataBlinds = {
+    powerBlinds: 0,
+    stage: 0,
+};
 
 io.on('connect', (socket) => {
     console.log('new user connected');
 
-    socket.on("data", (data) => {
+    socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
-        temp = parseInt(obj.temp);
-        hum = parseInt(obj.hum);
+        dataHome.temp = parseInt(obj.temp);
+        dataHome.hum = parseInt(obj.hum);
 
-        socket.emit('response', response);
+        console.log(dataHome);
+
+        io.emit("tempAndHum", { temp: dataHome.temp, hum: dataHome.hum });
     });
 
-    setInterval(() => socket.emit('sendToHomePage', { "temp": temp, "hum": hum }), 5000);
 
-    socket.on('pageAC', data => {
-        console.log(data);
+    // socket.on('pageAC', data => {
+    //     socket.emit('response', response);
+
+    //     console.log(response);
+    // });
+
+    socket.on('pageLight', data => {
+        dataLight.powerLight = data.powerLight;
+        dataLight.brightness = data.brightness;
+
+        console.log(dataLight);
+
+        io.emit('lightControll', dataLight);
     });
 
-    socket.on('pagetLight', data => {
-        console.log(data);
+    socket.on('pageBlinds', data => {
+        dataBlinds.powerBlinds = data.powerBlinds;
+        dataBlinds.stage = data.stage;
+
+        console.log(dataBlinds);
+
+        io.emit('blindsControll', dataBlinds);
     });
 });

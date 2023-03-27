@@ -24,10 +24,9 @@ let socket = io("http://localhost:3000");
 let temp = document.querySelector('.weather__tempIn');
 let hum = document.querySelector('.weather__hum');
 
-socket.on("sendToHomePage", data => {
-
-    var obj = JSON.parse(JSON.stringify(data))
-
-    temp.textContent = obj.temp;
-    hum.textContent = obj.hum;
+socket.on("tempAndHum", dataHome => {
+    // let obj = JSON.parse(JSON.stringify(data))
+    console.log(dataHome);
+    temp.textContent = dataHome.temp;
+    hum.textContent = dataHome.hum;
 });

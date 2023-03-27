@@ -43,12 +43,12 @@
                 <div class="blinds__bottom-text">Control</div>
                 <div class="blinds__footer">
                     <label class="blinds__label">
-                        <input class="blinds__input" type="number" min = "0" max = "100">
+                        <input class="blinds__input" type="number" min="0" max="180" step="20">
                         <span class="blinds__percent">%</span>
                     </label>
                     <div class="blinds__changes">
-                        <button class="blinds__indec">−</button>
-                        <button class="blinds__indec">+</button>
+                        <button class="blinds__indec" id="minus">−</button>
+                        <button class="blinds__indec" id="plus">+</button>
                     </div>
                 </div>
             </div>
@@ -89,6 +89,8 @@
             </div>
         </div>
     </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/blinds/script.js"></script>
 </body>
 
 </html>
