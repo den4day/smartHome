@@ -4,10 +4,10 @@ let lightRange = document.querySelector('.light__range');
 
 power.addEventListener("change", () => {
     console.log(power.checked);
-    socket.emit('pageLight', { power: power.checked });
+    socket.emit('pageAC', { power: power.checked });
 });
 
-lightRange.addEventListener("change", () => {
-    console.log(lightRange.value);
-    socket.emit('pageLight', { brightness: Number(lightRange.value) });
-});
+// lightRange.addEventListener("change", () => {
+//     console.log(lightRange.value);
+//     socket.emit('pageAC', { brightness: Number(lightRange.value) });
+// });

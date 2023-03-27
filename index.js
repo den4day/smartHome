@@ -43,6 +43,13 @@ app.get('/robot', (req, res) => {
     res.sendFile(__dirname + '/view/pages/robot/index.html');
 });
 
+app.get('/signin', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/signin/index.html');
+});
+
+app.get('/signup', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/signup/index.html');
+});
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
@@ -53,22 +60,23 @@ let response = {};
 
 io.on('connect', (socket) => {
     console.log('new user connected');
+
     socket.on("data", (data) => {
         let obj = JSON.parse(JSON.stringify(data));
 
         temp = parseInt(obj.temp);
         hum = parseInt(obj.hum);
-        //console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
 
         socket.emit('response', response);
     });
 
     setInterval(() => socket.emit('sendToHomePage', { "temp": temp, "hum": hum }), 5000);
 
-    socket.on('sendLightRange', data => {
-        // let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
+    socket.on('pageAC', data => {
+        console.log(data);
+    });
 
-        // response.lightStatus = parseInt(data);       // Вписывание полей 
+    socket.on('pagetLight', data => {
         console.log(data);
     });
 });
