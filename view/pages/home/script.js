@@ -1,5 +1,3 @@
-let temp = document.querySelector('.weather__tempIn');
-let hum = document.querySelector('.weather__hum');
 
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
@@ -22,13 +20,18 @@ tabsBtn.forEach(item =>
 
 document.querySelector(".control__item").click();
 
-// let socket = io("http://localhost:3000");
-// let temp = document.querySelector(".weather__tempIn");
-// let hum = document.querySelector(".weather__hum");
+let socket = io("http://localhost:3000");
 
-// socket.on("sendToHomePage", data => {
-//     temp.value = data.temp;
-//     hum.value = data.hum;
-// });
+let temp = document.querySelector('.weather__tempIn');
+let hum = document.querySelector('.weather__hum');
+
+socket.on("sendToHomePage", data => {
+
+    var obj = JSON.parse(JSON.stringify(data))
+
+    temp.textContent = obj.temp;
+    hum.textContent = obj.hum;
+
+});
 
 
