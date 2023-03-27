@@ -43,33 +43,32 @@ app.get('/robot', (req, res) => {
     res.sendFile(__dirname + '/view/pages/robot/index.html');
 });
 
+
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
-var temp;
-var hum;
-
-
+let temp = 0; // переменная для хранения температуры
+let hum = 0;  // переменная для хранения влажности 
+let response = {};
 
 io.on('connect', (socket) => {
     console.log('new user connected');
     socket.on("data", (data) => {
-        console.log(data);
+        let obj = JSON.parse(JSON.stringify(data));
 
-        var obj = JSON.parse(JSON.stringify(data));
+        temp = parseInt(obj.temp);
+        hum = parseInt(obj.hum);
+        //console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
 
-        
-        var temp = parseInt(obj.temp);
-        var hum = parseInt(obj.hum);
-
-        console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
-
-        const response = {
-            Hum: hum,
-            Temp: temp
-         };
-         socket.emit('response', JSON.stringify(response));
-         console.log('response sent!');
-        });
+         socket.emit('response', response);
+    });
     
+    setInterval(() => socket.emit('sendToHomePage', {"temp": temp, "hum": hum}), 5000);
+
+    socket.on('sendLightRange', data =>{
+        // let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
+        
+        // response.lightStatus = parseInt(data);       // Вписывание полей 
+        console.log(data);
+    }); 
 });
