@@ -12,6 +12,8 @@ body {
     font-size: 12px;
     font-weight: 400;
     line-height: 21px;
+    min-width: 720px;
+    margin: 0px auto;
 }
 
 .header {
@@ -200,20 +202,14 @@ body {
 
 .footer .container {
     padding: 40px 20px 20px;
+    border-radius: 50px 50px 0px 0px;
+    border: 1px solid #000000;
 }
 
 .footer__header {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 40px;
-}
-
-.footer__hr {
-    height: 2px;
-    margin: 20px 0;
-    border: 1px solid #FFFFFF;
-    border-radius: 10px;
-    background-color: #FFFFFF;
 }
 
 .footer__row {
@@ -231,4 +227,13 @@ body {
 .footer__let {
     font-size: 12px;
     font-weight: 400;
+}
+
+.footer__hr {
+    height: 2px;
+    margin: 20px 0;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    opacity: 1;
 }
