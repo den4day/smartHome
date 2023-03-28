@@ -151,7 +151,7 @@ body {
     justify-content: space-between;
 }
 
-.vent__label {
+/* .vent__label {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -163,14 +163,45 @@ body {
     border-radius: 10px;
     font-size: 14px;
     font-weight: 700;
+} */
+
+.vent__select {
+    background-color: rgba(102, 161, 255, 0.5);
+    width: 140px;
+    height: 40px;
+    border: 1px solid #000000;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
 }
 
-.vent__input {
+.vent__select:focus {
+    outline: none;
+}
+
+/* .blinds__input {
     font-weight: 700;
     padding-right: 5px;
     width: 100%;
     background-color: rgba(102, 161, 255, 0);
     padding: 10px 0px;
+    border: none;
+    outline: none;
+} */
+
+.vent__input::-webkit-outer-spin-button,
+.vent__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.vent__input,
+.vent___input:hover,
+.vent___input:focus {
+    outline: none;
+    appearance: none;
+    -moz-appearance: textfield;
+
 }
 
 .vent__percent {

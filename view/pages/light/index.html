@@ -32,7 +32,7 @@
                         </label>
                     </div>
                     <div class="light__down">
-                        <div class="light__down-header">50%</div>
+                        <div class="light__down-header">20%</div>
                         <div class="light__down-text">Brightness</div>
                     </div>
                 </div>
@@ -41,11 +41,10 @@
             <div class="light__bottom">
                 <div class="light__bottom-text">Intensity</div>
                 <div class="light__slidecontainer">
-                    <input class="light__range" type="range" min="51" value="51" max="255" step="51">
+                    <input class="light__range" type="range" min="51" max="255" value="51" step="51">
                 </div>
                 <div class="light__measure">
                     <img class="light__moon" src="img/moon.svg" alt="moon">
-                    <!-- <div class="light__mark" src="img/mark.svg" alt="mark"></div> -->
                     <div class="light__mark" src="img/mark.svg" alt="mark"></div>
                     <div class="light__mark" src="img/mark.svg" alt="mark"></div>
                     <div class="light__mark" src="img/mark.svg" alt="mark"></div>
@@ -89,6 +88,8 @@
             </div>
         </footer>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/light/script.js"></script>
 </body>
 
 </html>
