@@ -43,33 +43,99 @@ app.get('/robot', (req, res) => {
     res.sendFile(__dirname + '/view/pages/robot/index.html');
 });
 
+app.get('/signin', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/signin/index.html');
+});
+
+app.get('/signup', (req, res) => {
+    res.sendFile(__dirname + '/view/pages/signup/index.html');
+});
+
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
-let temp = 0; // переменная для хранения температуры
-let hum = 0;  // переменная для хранения влажности 
-let response = {};
+let dataHome = {
+    powerAC: 0,
+    powerBlinds: 0,
+    powerCV: 0,
+    powerLight: 0,
+    powerRobot: 0,
+    powerVenting: 0,
+    temp: 0,
+    hum: 0
+};
+
+let dataLight = {
+    powerLight: 0,
+    brightness: 0
+};
+
+let dataAC = {
+    powerAC: 0,
+    mode: 0,
+    temp: 18
+};
+
+let dataBlinds = {
+    powerBlinds: 0,
+    stage: 0
+};
+
+let dataVenting = {
+    powerVenting: 0,
+    speed: 0
+};
+
 
 io.on('connect', (socket) => {
     console.log('new user connected');
-    socket.on("data", (data) => {
+
+    socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
-        temp = parseInt(obj.temp);
-        hum = parseInt(obj.hum);
-        //console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
+        dataHome.temp = parseInt(obj.temp);
+        dataHome.hum = parseInt(obj.hum);
 
-        socket.emit('response', response);
+        console.log(dataHome);
+
+        io.emit("tempAndHum", { temp: dataHome.temp, hum: dataHome.hum });
     });
 
-    setInterval(() => socket.emit('sendToHomePage', { "temp": temp, "hum": hum }), 5000);
+    socket.on('pageLight', data => {
+        dataLight.powerLight = data.powerLight;
+        dataLight.brightness = data.brightness;
 
-    socket.on('sendLightRange', data => {
-        // let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
+        console.log(dataLight);
 
-        // response.lightStatus = parseInt(data);       // Вписывание полей 
-        console.log(data);
+        io.emit('lightControll', dataLight);
+    });
+
+    socket.on('pageAC', data => {
+        dataAC.powerAC = data.powerAC;
+        dataAC.mode = data.mode;
+        dataAC.temp = data.temp;
+
+        console.log(dataAC);
+
+        io.emit('acControll', dataAC);
+    });
+
+    socket.on('pageBlinds', data => {
+        dataBlinds.powerBlinds = data.powerBlinds;
+        dataBlinds.stage = data.stage;
+
+        console.log(dataBlinds);
+
+        io.emit('blindsControll', dataBlinds);
+    });
+
+    socket.on('pageVenting', data => {
+        dataVenting.powerVenting = data.powerVenting;
+        dataVenting.speed = data.speed;
+
+        console.log(dataVenting);
+
+        io.emit('ventingControll', dataVenting);
     });
 });
-

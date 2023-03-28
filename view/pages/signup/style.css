@@ -2,9 +2,9 @@
     font-family: "Montserrat";
     src: local("Montserrat Regular"),
         local("Montserrat-Regular"),
-        url("../fonts/Montserrat-Regular.svg") format("svg"),
-        url("../fonts/Montserrat-Regular.woff") format("woff"),
-        url("../fonts/Montserrat-Regular.woff2") format("woff2");
+        url("/fonts/Montserrat-Regular.svg") format("svg"),
+        url("/fonts/Montserrat-Regular.woff") format("woff"),
+        url("/fonts/Montserrat-Regular.woff2") format("woff2");
     font-weight: 400;
 }
 
@@ -12,9 +12,9 @@
     font-family: "Montserrat";
     src: local("Montserrat Bold"),
         local("Montserrat-Bold"),
-        url("../fonts/Montserrat-Bold.woff") format("woff"),
-        url("../fonts/Montserrat-Bold.woff2") format("woff2"),
-        url("../fonts/Montserrat-Bold.svg") format("svg");
+        url("/fonts/Montserrat-Bold.woff") format("woff"),
+        url("/fonts/Montserrat-Bold.woff2") format("woff2"),
+        url("/fonts/Montserrat-Bold.svg") format("svg");
     font-weight: 700;
 }
 
@@ -27,7 +27,7 @@ body {
     background-color: #F0EFF4;
 }
 
-.upper{
+.upper {
     background-color: rgba(102, 161, 255, 0.5);
     border-radius: 0px 0px 50px 50px;
 
@@ -56,6 +56,7 @@ body {
     height: 37px;
     margin: 10px 0px;
     padding-left: 15px;
+    font-size: 14px;
     border: 1px solid #000000;
     border-radius: 10px;
 }
@@ -66,6 +67,7 @@ body {
     top: 521px;
     width: 160px;
     height: 40px;
+    font-size: 16px;
     font-weight: 700;
     border: 1px solid #000000;
     border-radius: 10px;
@@ -91,6 +93,7 @@ body {
     color: #767676;
     padding-bottom: 5px;
 }
+
 .text__down {
     text-decoration-line: underline;
     color: #000000;

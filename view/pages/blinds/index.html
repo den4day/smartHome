@@ -35,60 +35,64 @@
                         <div class="blinds__down-header">100 %</div>
                         <div class="blinds__down-text">Position</div>
                     </div>
-
                 </div>
                 <img class="blinds__curtans" src="img/curtains.svg" alt="blinds">
             </div>
             <div class="blinds__bottom">
                 <div class="blinds__bottom-text">Control</div>
                 <div class="blinds__footer">
-                    <label class="blinds__label">
-                        <input class="blinds__input" type="number" min = "0" max = "100">
-                        <span class="blinds__percent">%</span>
-                    </label>
+                    <select class="blinds__select">
+                        <option class="blinds__option" value="0">0%</option>
+                        <option class="blinds__option" value="45">25%</option>
+                        <option class="blinds__option" value="90">50%</option>
+                        <option class="blinds__option" value="135">75%</option>
+                        <option class="blinds__option" value="180">100%</option>
+                    </select>
                     <div class="blinds__changes">
-                        <button class="blinds__indec">−</button>
-                        <button class="blinds__indec">+</button>
+                        <button class="blinds__indec" id="minus">−</button>
+                        <button class="blinds__indec" id="plus">+</button>
                     </div>
                 </div>
             </div>
         </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__header">Statistic</div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Usage today</div>
+                        <div class="footer__data">
+                            <span class="footer__num">1.1</span>
+                            <span class="footer__let">kWh</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Usage this month</div>
+                        <div class="footer__data">
+                            <span class="footer__num">7.1</span>
+                            <span class="footer__let">kWh</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Total working hours</div>
+                        <div class="footer__data">
+                            <span class="footer__num">4</span>
+                            <span class="footer__let">h</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+            </div>
+        </footer>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__header">Statistic</div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Usage today</div>
-                    <div class="footer__data">
-                        <span class="footer__num">1.1</span>
-                        <span class="footer__let">kWh</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Usage this month</div>
-                    <div class="footer__data">
-                        <span class="footer__num">7.1</span>
-                        <span class="footer__let">kWh</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Total working hours</div>
-                    <div class="footer__data">
-                        <span class="footer__num">4</span>
-                        <span class="footer__let">h</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-        </div>
-    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/blinds/script.js"></script>
 </body>
 
 </html>

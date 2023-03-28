@@ -21,21 +21,22 @@
                 <div class="header__words">AC Control</div>
             </nav>
         </header>
-        <section class="light">
-            <div class="light__section">
-                <div class="light__left">
-                    <div class="light__up">
-                        <div class="light__header">Power</div>
+        <section class="ac">
+            <div class="ac__section">
+                <div class="ac__left">
+                    <div class="ac__up">
+                        <div class="ac__header">Power</div>
                         <label class="switch">
                             <input class="switch__input" type="checkbox">
                             <span class="switch__slider"></span>
                         </label>
                     </div>
-                    <div class="light__down">
-                        <div class="light__down-header">18%</div>
-                        <div class="light__down-text">Temperature</div>
+                    <div class="ac__down">
+                        <div class="ac__down-header">
+                            <span class="ac__temp">18</span> °C
+                        </div>
+                        <div class="ac__down-text">Temperature</div>
                     </div>
-
                 </div>
                 <img class="air__snowflake" src="img/snowflake.png" alt="snowflake">
             </div>
@@ -43,55 +44,57 @@
                 <div class="air__bottom-text">Mode</div>
                 <div class="air__footer">
                     <select class="air__select" name="air__mode">
-                        <option class="air__option" value="cool" selected>Cool</option>
-                        <option class="air__option" value="heat">Heat</option>
-                        <option class="air__option" value="fan">Fan</option>
-                        <option class="air__option" value="dry">Dry</option>
-                        <option class="air__option" value="auto">Auto</option>
+                        <option class="air__option" value="1" selected>Cool</option>
+                        <option class="air__option" value="2">Heat</option>
+                        <option class="air__option" value="3">Fan</option>
+                        <option class="air__option" value="4">Dry</option>
+                        <!-- <option class="air__option" value="auto">Auto</option> -->
                     </select>
                     <div class="air__changes">
-                        <button class="air__indec">+</button>
-                        <button class="air__indec">−</button>
+                        <button class="air__indec" id="minus">−</button>
+                        <button class="air__indec" id="plus">+</button>
                     </div>
                 </div>
             </div>
         </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__header">Statistic</div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Usage today</div>
+                        <div class="footer__data">
+                            <span class="footer__num">1.1</span>
+                            <span class="footer__let">kWh</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Usage this month</div>
+                        <div class="footer__data">
+                            <span class="footer__num">7.1</span>
+                            <span class="footer__let">kWh</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+                <div class="footer__line">
+                    <div class="footer__row">
+                        <div class="footer__usage">Total working hours</div>
+                        <div class="footer__data">
+                            <span class="footer__num">4</span>
+                            <span class="footer__let">h</span>
+                        </div>
+                    </div>
+                    <hr class="footer__hr">
+                </div>
+            </div>
+        </footer>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__header">Statistic</div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Usage today</div>
-                    <div class="footer__data">
-                        <span class="footer__num">1.1</span>
-                        <span class="footer__let">kWh</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Usage this month</div>
-                    <div class="footer__data">
-                        <span class="footer__num">7.1</span>
-                        <span class="footer__let">kWh</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-            <div class="footer__line">
-                <div class="footer__row">
-                    <div class="footer__usage">Total working hours</div>
-                    <div class="footer__data">
-                        <span class="footer__num">4</span>
-                        <span class="footer__let">h</span>
-                    </div>
-                </div>
-                <hr class="footer__hr">
-            </div>
-        </div>
-    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/ac/script.js"></script>
 </body>
 
 </html>
