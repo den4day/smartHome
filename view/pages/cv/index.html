@@ -32,21 +32,14 @@
                         </label>
                     </div>
                     <div class="cv__down">
-                        <div class="cv__down-header">45 °C</div>
-                        <div class="cv__down-text">Angel</div>
+                        <div class="cv__down-header">Unknown</div>
+                        <div class="cv__down-text">Name</div>
                     </div>
-
                 </div>
                 <img class="cv__img" src="img/cv.svg" alt="cv">
             </div>
-            <div class="cv__bottom">
-                <h1>Facial Detection</h1>
-                <div class="wrapper">
-                    <div class="loader">Распознаю ваше лицо...</div>
-                    <video class="video" width="720" height="576" autoplay muted></video>
-                </div>
-            </div>
         </section>
+        <img class="cv__photo" src="img/cv.svg" alt="cv">
         <footer class="footer">
             <div class="container">
                 <div class="footer__header">Statistic</div>
@@ -79,12 +72,11 @@
                         </div>
                     </div>
                     <hr class="footer__hr">
-                    </div>
                 </div>
             </div>
         </footer>
-        <script src="/pages/cv/face-api.min.js"></script>
-        <script src="/pages/cv/main.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/pages/cv/script.js"></script>
     </div>
 </body>
 
