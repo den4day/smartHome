@@ -1,5 +1,6 @@
 let PORT = process.env.PORT || 3000;
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 let http = require('http');
 let server = http.Server(app);
@@ -51,8 +52,16 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/view/pages/signup/index.html');
 });
 
-
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post("/cv", (req, res) => {
+    let rec_name = req.body.name;
+    io.emit("names", rec_name);
+});
 
 
 let dataHome = {
