@@ -102,6 +102,7 @@ body {
 
 .footer {
     margin: 0px auto;
+    padding-bottom: 40px;
 }
 
 .text__down {
@@ -116,5 +117,11 @@ body {
 @media (min-width: 1024px) {
     .upper, .footer {
         max-width: 720px;
+    }
+}
+
+@media (min-width: 768px) {
+    .upper, .footer {
+        max-width: 540px;
     }
 }

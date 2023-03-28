@@ -184,7 +184,6 @@ body {
 
 .control__list {
     display: flex;
-    flex-wrap: wrap;
     align-content: center;
     overflow-x: auto;
     max-height: 60px;
@@ -242,13 +241,14 @@ body {
 }
 
 
-/* .footer {
+.footer {
     padding: 0px 10px 40px;
-} */
+}
 
 .footer__btn {
     display: inline-block;
     width: 100%;
+    align-items: center;
     line-height: 40px;
     font-size: 16px;
     font-weight: 600;
@@ -293,7 +293,7 @@ body {
     }
 }
 
-@media (min-width: 320px) and (max-width: 540px) {
+@media (min-width: 320px) and (max-width: 600px) {
     .control {
         justify-content: center;
     }
