@@ -1,9 +1,9 @@
 
- let tabsBtn = document.querySelectorAll('.control__item');
- let tabsTile = document.querySelectorAll('.control__tile');
+let tabsBtn = document.querySelectorAll('.control__item');
+let tabsTile = document.querySelectorAll('.control__tile');
 
- tabsBtn.forEach(item =>
-     item.addEventListener('click', () => {
+tabsBtn.forEach(item =>
+    item.addEventListener('click', () => {
         let currentBtn = item;
         let tabId = currentBtn.getAttribute("data-tab");
         let currentTab = document.querySelectorAll(".group" + tabId);

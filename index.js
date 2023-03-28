@@ -60,15 +60,16 @@ io.on('connect', (socket) => {
         hum = parseInt(obj.hum);
         //console.log('Temp: ' + `${temp} ` + 'Hum: ' + `${hum}`);
 
-         socket.emit('response', response);
+        socket.emit('response', response);
     });
-    
-    setInterval(() => socket.emit('sendToHomePage', {"temp": temp, "hum": hum}), 5000);
 
-    socket.on('sendLightRange', data =>{
-        let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
-        response.power = data;       // Вписывание полей
-        response.brightness =  
+    setInterval(() => socket.emit('sendToHomePage', { "temp": temp, "hum": hum }), 5000);
+
+    socket.on('sendLightRange', data => {
+        // let obj = JSON.parse(JSON.stringify(response));      // Парсинг общего объекта для вписывания в него полей
+
+        // response.lightStatus = parseInt(data);       // Вписывание полей 
         console.log(data);
-    }); 
+    });
 });
+
