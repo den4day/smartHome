@@ -320,3 +320,19 @@ body {
         max-width: 720px;
     }
 }
+
+@media (max-width: 540px) {
+    .container {
+        padding: 0px;
+        max-width: 720px;
+    }
+
+    .header {
+        padding: 0px 20px;
+    }
+
+    .light {
+        padding: 0px 20px;
+    }
+
+}
