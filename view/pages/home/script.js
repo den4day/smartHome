@@ -1,5 +1,7 @@
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
+let btnOff = document.querySelector('.footer__btn');
+let tumblers = document.querySelectorAll('.switch__input');
 
 tabsBtn.forEach(item =>
     item.addEventListener('click', () => {
@@ -16,6 +18,13 @@ tabsBtn.forEach(item =>
         }
     })
 );
+
+btnOff.addEventListener("click", () => {
+    tumblers.forEach(item => {
+        console.log(item.checked);
+        item.checked = false;
+    });
+});
 
 document.querySelector(".control__item").click();
 
