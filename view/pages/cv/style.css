@@ -164,6 +164,13 @@ canvas {
     height: 80px;
 }
 
+.cv__photo {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 40px;
+}
+
 .cv__bottom {
     margin-bottom: 40px;
 }
