@@ -30,3 +30,35 @@ socket.on("tempAndHum", dataHome => {
     temp.textContent = dataHome.temp;
     hum.textContent = dataHome.hum;
 });
+
+
+// API ключ
+let apiKey = "e1a0fc27a73f01d7150e529a54067051";
+// Город погода которого нужна
+let city = "Rostov-on-Don";
+// Формируем url для GET запроса
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
+
+// Отправляем запрос
+axios.get(url).then(res => {
+    // Выводим результат в консоль браузера
+    console.log(res.data);
+});
+
+axios.get(url).then(res => {
+    console.log(res.data.main.temp);
+    console.log(res.data.weather["0"].main);
+    document.querySelector('.weather__tempOut').innerHTML = Math.round(res.data.main.temp);
+    document.querySelector('.weather__header').innerHTML = res.data.weather["0"].main;
+});
+
+
+let today = new Date();
+
+let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+options.timeZone = 'UTC';
+options.timeZoneName = 'short';
+
+let now = today.toLocaleString('en-US', options);
+document.querySelector('.weather__text').innerHTML = now.slice(0, -7);
+console.log(now);
