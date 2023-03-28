@@ -242,3 +242,10 @@ body {
     background-color: #F0EFF4;
     opacity: 1;
 }
+
+@media (max-width: 320px) {
+    .container {
+       min-width: 320px;
+       /* margin: 0px auto; */
+       };
+}
