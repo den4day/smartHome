@@ -1,9 +1,14 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     font-family: "Montserrat", serif;
     background-color: #F0EFF4;
+}
+
+.container {
+    padding: 20px 20px 0px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21px;
+    margin: 0px auto;
 }
 
 
@@ -38,15 +43,6 @@ body {
 
 canvas {
     position: absolute;
-}
-
-.container {
-    padding: 20px 20px 0px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 21px;
-    min-width: 720px;
-    margin: 0px auto;
 }
 
 .header {
@@ -183,7 +179,7 @@ canvas {
     border-radius: 50px 50px 0px 0px;
 }
 
-.footer .container {
+.footer__container {
     padding: 40px 20px 20px;
     border-radius: 50px 50px 0px 0px;
     border: 1px solid #000000;
@@ -227,4 +223,10 @@ canvas {
     border-radius: 10px;
     background-color: #FFFFFF;
     opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 720px;
+    }
 }

@@ -1,9 +1,5 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     font-family: "Montserrat", serif;
-    height: 100vh;
     background-color: #F0EFF4;
 }
 
@@ -12,7 +8,6 @@ body {
     font-size: 12px;
     font-weight: 400;
     line-height: 21px;
-    min-width: 720px;
     margin: 0px auto;
 }
 
@@ -282,7 +277,7 @@ body {
     border-radius: 50px 50px 0px 0px;
 }
 
-.footer .container {
+.footer__container {
     padding: 40px 20px 20px;
     border-radius: 50px 50px 0px 0px;
     border: 1px solid #000000;
@@ -318,4 +313,10 @@ body {
     border-radius: 10px;
     background-color: #F0EFF4;
     opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 720px;
+    }
 }
