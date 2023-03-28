@@ -161,7 +161,7 @@ body {
     justify-content: space-between;
 }
 
-.blinds__label {
+/* .blinds__label {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -173,15 +173,45 @@ body {
     border-radius: 10px;
     font-size: 14px;
     font-weight: 700;
+} */
+
+.blinds__select {
+    background-color: rgba(102, 161, 255, 0.5);
+    width: 140px;
+    height: 40px;
+    border: 1px solid #000000;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
 }
 
-.blinds__input {
+.blinds__select:focus {
+    outline: none;
+}
+
+/* .blinds__input {
     font-weight: 700;
     padding-right: 5px;
     width: 100%;
     background-color: rgba(102, 161, 255, 0);
     padding: 10px 0px;
     border: none;
+    outline: none;
+} */
+
+.blinds__input::-webkit-outer-spin-button,
+.blinds__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.blinds__input,
+.blinds__input:hover,
+.blinds__input:focus {
+    outline: none;
+    appearance: none;
+    -moz-appearance: textfield;
+
 }
 
 .blinds__percent {
@@ -200,7 +230,7 @@ body {
     font-size: 30px;
     font-weight: 500;
     color: #000;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     border-radius: 10px;
     background-color: rgba(102, 161, 255, 0.5);
 }

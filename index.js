@@ -51,18 +51,19 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/view/pages/signup/index.html');
 });
 
+
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
 let dataHome = {
-    temp: 0,
-    hum: 0,
-    powerLight: 0,
     powerAC: 0,
     powerBlinds: 0,
-    powerVenting: 0,
     powerCV: 0,
-    powerRobot: 0
+    powerLight: 0,
+    powerRobot: 0,
+    powerVenting: 0,
+    temp: 0,
+    hum: 0
 };
 
 let dataLight = {
@@ -70,10 +71,22 @@ let dataLight = {
     brightness: 0
 };
 
+let dataAC = {
+    powerAC: 0,
+    mode: 0,
+    temp: 18
+};
+
 let dataBlinds = {
     powerBlinds: 0,
-    stage: 0,
+    stage: 0
 };
+
+let dataVenting = {
+    powerVenting: 0,
+    speed: 0
+};
+
 
 io.on('connect', (socket) => {
     console.log('new user connected');
@@ -89,13 +102,6 @@ io.on('connect', (socket) => {
         io.emit("tempAndHum", { temp: dataHome.temp, hum: dataHome.hum });
     });
 
-
-    // socket.on('pageAC', data => {
-    //     socket.emit('response', response);
-
-    //     console.log(response);
-    // });
-
     socket.on('pageLight', data => {
         dataLight.powerLight = data.powerLight;
         dataLight.brightness = data.brightness;
@@ -105,6 +111,16 @@ io.on('connect', (socket) => {
         io.emit('lightControll', dataLight);
     });
 
+    socket.on('pageAC', data => {
+        dataAC.powerAC = data.powerAC;
+        dataAC.mode = data.mode;
+        dataAC.temp = data.temp;
+
+        console.log(dataAC);
+
+        io.emit('acControll', dataAC);
+    });
+
     socket.on('pageBlinds', data => {
         dataBlinds.powerBlinds = data.powerBlinds;
         dataBlinds.stage = data.stage;
@@ -112,5 +128,14 @@ io.on('connect', (socket) => {
         console.log(dataBlinds);
 
         io.emit('blindsControll', dataBlinds);
+    });
+
+    socket.on('pageVenting', data => {
+        dataVenting.powerVenting = data.powerVenting;
+        dataVenting.speed = data.speed;
+
+        console.log(dataVenting);
+
+        io.emit('ventingControll', dataVenting);
     });
 });

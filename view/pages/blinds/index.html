@@ -41,10 +41,13 @@
             <div class="blinds__bottom">
                 <div class="blinds__bottom-text">Control</div>
                 <div class="blinds__footer">
-                    <label class="blinds__label">
-                        <input class="blinds__input" type="number" min="0" max="180" step="20">
-                        <span class="blinds__percent">%</span>
-                    </label>
+                    <select class="blinds__select">
+                        <option class="blinds__option" value="0">0%</option>
+                        <option class="blinds__option" value="45">25%</option>
+                        <option class="blinds__option" value="90">50%</option>
+                        <option class="blinds__option" value="135">75%</option>
+                        <option class="blinds__option" value="180">100%</option>
+                    </select>
                     <div class="blinds__changes">
                         <button class="blinds__indec" id="minus">−</button>
                         <button class="blinds__indec" id="plus">+</button>
@@ -88,6 +91,8 @@
             </div>
         </footer>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/pages/blinds/script.js"></script>
 </body>
 
 </html>

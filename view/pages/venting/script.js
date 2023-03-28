@@ -1,8 +1,8 @@
 let socket = io("http://localhost:3000");
 
 let power = document.querySelector('.switch__input');
-let input = document.querySelector('.blinds__select');
-let info = document.querySelector(".blinds__down-header");
+let input = document.querySelector('.vent__select');
+let info = document.querySelector(".vent__down-header");
 let minus = document.querySelector('#minus');
 let plus = document.querySelector('#plus');
 
@@ -10,10 +10,10 @@ let plus = document.querySelector('#plus');
 if (power.checked) {
     switch (input.value) {
         case "0": info.textContent = "0%"; break;
-        case "45": info.textContent = "25%"; break;
-        case "90": info.textContent = "50%"; break;
-        case "135": info.textContent = "75%"; break;
-        case "180": info.textContent = "100%";
+        case "25": info.textContent = "25%"; break;
+        case "50": info.textContent = "50%"; break;
+        case "75": info.textContent = "75%"; break;
+        case "100": info.textContent = "100%";
     }
 } else {
     info.textContent = "0%";
@@ -36,10 +36,10 @@ power.addEventListener("change", () => {
     if (power.checked) {
         switch (input.value) {
             case "0": info.textContent = "0%"; break;
-            case "45": info.textContent = "25%"; break;
-            case "90": info.textContent = "50%"; break;
-            case "135": info.textContent = "75%"; break;
-            case "180": info.textContent = "100%";
+            case "25": info.textContent = "25%"; break;
+            case "50": info.textContent = "50%"; break;
+            case "75": info.textContent = "75%"; break;
+            case "100": info.textContent = "100%";
         }
     } else {
         info.textContent = "0%";
@@ -64,7 +64,7 @@ power.addEventListener("change", () => {
         plus.style.transform = "scale(1)";
     }
 
-    socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+    socket.emit('pageVenting', { powerVenting: power.checked, speed: Number(input.value) });
 });
 
 input.addEventListener("change", () => {
@@ -72,10 +72,10 @@ input.addEventListener("change", () => {
 
     switch (input.value) {
         case "0": info.textContent = "0%"; break;
-        case "45": info.textContent = "25%"; break;
-        case "90": info.textContent = "50%"; break;
-        case "135": info.textContent = "75%"; break;
-        case "180": info.textContent = "100%";
+        case "25": info.textContent = "25%"; break;
+        case "50": info.textContent = "50%"; break;
+        case "75": info.textContent = "75%"; break;
+        case "100": info.textContent = "100%";
     }
 
     if (input.selectedIndex == 0) {
@@ -95,7 +95,7 @@ input.addEventListener("change", () => {
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
     }
 
-    socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+    socket.emit('pageVenting', { powerVenting: power.checked, speed: Number(input.value) });
 });
 
 minus.addEventListener("click", () => {
@@ -106,10 +106,10 @@ minus.addEventListener("click", () => {
 
         switch (input.value) {
             case "0": info.textContent = "0%"; break;
-            case "45": info.textContent = "25%"; break;
-            case "90": info.textContent = "50%"; break;
-            case "135": info.textContent = "75%"; break;
-            case "180": info.textContent = "100%";
+            case "25": info.textContent = "25%"; break;
+            case "50": info.textContent = "50%"; break;
+            case "75": info.textContent = "75%"; break;
+            case "100": info.textContent = "100%";
         }
     } else {
         console.log("меньше нельзя!");
@@ -126,7 +126,7 @@ minus.addEventListener("click", () => {
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
     }
 
-    socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+    socket.emit('pageVenting', { powerVenting: power.checked, speed: Number(input.value) });
 });
 
 plus.addEventListener("click", () => {
@@ -137,10 +137,10 @@ plus.addEventListener("click", () => {
 
         switch (input.value) {
             case "0": info.textContent = "0%"; break;
-            case "45": info.textContent = "25%"; break;
-            case "90": info.textContent = "50%"; break;
-            case "135": info.textContent = "75%"; break;
-            case "180": info.textContent = "100%";
+            case "25": info.textContent = "25%"; break;
+            case "50": info.textContent = "50%"; break;
+            case "75": info.textContent = "75%"; break;
+            case "100": info.textContent = "100%";
         }
     } else {
         console.log("больше нельзя!");
@@ -157,7 +157,7 @@ plus.addEventListener("click", () => {
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
     }
 
-    socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+    socket.emit('pageVenting', { powerVenting: power.checked, speed: Number(input.value) });
 });
 
 
