@@ -1,3 +1,5 @@
+let socket = io("http://localhost:3000");
+
 let tabsBtn = document.querySelectorAll('.control__item');
 let tabsTile = document.querySelectorAll('.control__tile');
 let btnOff = document.querySelector('.footer__btn');
@@ -173,14 +175,17 @@ if (getCookie("activeTab") == "living") {
 
 tab1.addEventListener("click", () => {
     setCookie("activeTab", "living");
+    socket.emit("pageHome", {})
 });
 
 tab2.addEventListener("click", () => {
     setCookie("activeTab", "bedroom");
 });
+
 tab3.addEventListener("click", () => {
     setCookie("activeTab", "dinning");
 });
+
 tab4.addEventListener("click", () => {
     setCookie("activeTab", "courtyard");
 });
@@ -251,16 +256,10 @@ btnOff.addEventListener("click", () => {
 });
 
 
-let socket = io("http://localhost:3000");
-
-let temp = document.querySelector('.weather__tempIn');
-let hum = document.querySelector('.weather__hum');
-
 socket.on("tempAndHum", dataHome => {
-    // let obj = JSON.parse(JSON.stringify(data))
     console.log(dataHome);
-    temp.textContent = dataHome.temp;
-    hum.textContent = dataHome.hum;
+    document.querySelector('.weather__tempIn').textContent = dataHome.temp;
+    document.querySelector('.weather__hum').textContent = dataHome.hum;
 });
 
 
