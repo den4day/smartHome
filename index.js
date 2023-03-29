@@ -65,14 +65,12 @@ app.post("/cv", (req, res) => {
 
 
 let dataHome = {
+    powerLight: 0,
     powerAC: 0,
     powerBlinds: 0,
-    powerCV: 0,
-    powerLight: 0,
-    powerRobot: 0,
     powerVenting: 0,
-    temp: 0,
-    hum: 0
+    powerCV: 0,
+    powerRobot: 0
 };
 
 let dataLight = {
@@ -103,12 +101,20 @@ io.on('connect', (socket) => {
     socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
-        dataHome.temp = parseInt(obj.temp);
-        dataHome.hum = parseInt(obj.hum);
-
         console.log(dataHome);
 
-        io.emit("tempAndHum", { temp: dataHome.temp, hum: dataHome.hum });
+        io.emit("tempAndHum", { temp: parseInt(obj.temp), hum: parseInt(obj.hum) });
+    });
+
+    socket.on('pageHome', data => {
+        dataHome.powerLight = data.powerLight;
+        dataHome.powerAC = data.powerAC;
+        dataHome.powerBlinds = data.powerBlinds;
+        dataHome.powerVenting = data.powerVenting;
+        dataHome.powerCV = data.powerCV;
+        dataHome.powerRobot = data.powerRobot;
+
+        io.emit('homeControll', dataHome);
     });
 
     socket.on('pageLight', data => {
