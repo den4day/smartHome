@@ -81,10 +81,10 @@ body {
     margin-bottom: 40px;
 }
 
-.header__burger {
+/* .header__burger {
     width: 24px;
     height: 24px;
-}
+} */
 
 .header__image {
     width: 24px;
@@ -288,13 +288,28 @@ body {
     .container {
         max-width: 1024px;
     }
+    
     .control__tile {
         margin: 10px 20px 10px 0px;
+    }
+
+    .footer {
+        padding: 0px 0px 40px;
     }
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
     .control {
         justify-content: center;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .control__tile {
+        margin: 10px 20px 10px 0px;
+    }
+
+    .footer {
+        padding: 0px 0px 40px;
     }
 }

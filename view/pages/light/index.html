@@ -13,45 +13,47 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <nav class="header__nav">
-                <a class="header__backwards" href="/">
-                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
-                </a>
-                <div class="header__words">Light Control</div>
-            </nav>
-        </header>
-        <section class="light">
-            <div class="light__section">
-                <div class="light__left">
-                    <div class="light__up">
-                        <div class="light__header">Power</div>
-                        <label class="switch">
-                            <input class="switch__input" type="checkbox">
-                            <span class="switch__slider"></span>
-                        </label>
+        <div class="content">
+            <header class="header">
+                <nav class="header__nav">
+                    <a class="header__backwards" href="/">
+                        <img class="header__arrow" src="img/arrow.svg" alt="arrow">
+                    </a>
+                    <div class="header__words">Light Control</div>
+                </nav>
+            </header>
+            <section class="light">
+                <div class="light__section">
+                    <div class="light__left">
+                        <div class="light__up">
+                            <div class="light__header">Power</div>
+                            <label class="switch">
+                                <input class="switch__input" type="checkbox">
+                                <span class="switch__slider"></span>
+                            </label>
+                        </div>
+                        <div class="light__down">
+                            <div class="light__down-header">20%</div>
+                            <div class="light__down-text">Brightness</div>
+                        </div>
                     </div>
-                    <div class="light__down">
-                        <div class="light__down-header">20%</div>
-                        <div class="light__down-text">Brightness</div>
+                    <img class="light__lamp" src="img/lightbulb.svg" alt="lightbulb">
+                </div>
+                <div class="light__bottom">
+                    <div class="light__bottom-text">Intensity</div>
+                    <div class="light__slidecontainer">
+                        <input class="light__range" type="range" min="51" max="255" value="51" step="51">
+                    </div>
+                    <div class="light__measure">
+                        <img class="light__moon" src="img/moon.svg" alt="moon">
+                        <div class="light__mark" src="img/mark.svg" alt="mark"></div>
+                        <div class="light__mark" src="img/mark.svg" alt="mark"></div>
+                        <div class="light__mark" src="img/mark.svg" alt="mark"></div>
+                        <img class="light__sun" src="img/sun.svg" alt="sun">
                     </div>
                 </div>
-                <img class="light__lamp" src="img/lightbulb.svg" alt="lightbulb">
-            </div>
-            <div class="light__bottom">
-                <div class="light__bottom-text">Intensity</div>
-                <div class="light__slidecontainer">
-                    <input class="light__range" type="range" min="51" max="255" value="51" step="51">
-                </div>
-                <div class="light__measure">
-                    <img class="light__moon" src="img/moon.svg" alt="moon">
-                    <div class="light__mark" src="img/mark.svg" alt="mark"></div>
-                    <div class="light__mark" src="img/mark.svg" alt="mark"></div>
-                    <div class="light__mark" src="img/mark.svg" alt="mark"></div>
-                    <img class="light__sun" src="img/sun.svg" alt="sun">
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <footer class="footer">
             <div class="footer__container">
                 <div class="footer__header">Statistic</div>

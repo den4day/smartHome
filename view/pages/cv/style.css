@@ -11,6 +11,9 @@ body {
     margin: 0px auto;
 }
 
+.content {
+    min-height: calc(100vh - 320px);
+}
 
 .wrapper {
     padding: 20px;
@@ -238,6 +241,13 @@ canvas {
     }
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0px;
+        max-width: 540px;
+    }
+}
+
 @media (max-width: 540px) {
     .container {
         padding: 0px;
@@ -252,4 +262,7 @@ canvas {
         padding: 0px 20px;
     }
 
+    .header__nav {
+        margin-top: 20px;
+    }
 }
