@@ -7,6 +7,54 @@ let minus = document.querySelector('#minus');
 let plus = document.querySelector('#plus');
 
 
+function setCookie(name, value, options = {}) {
+    options = {
+        path: '/',
+        // при необходимости добавьте другие значения по умолчанию
+        ...options
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function deleteCookie(name) {
+    setCookie(name, "", {
+        'max-age': -1
+    })
+}
+
+
+if (getCookie("powerAC") == "true") {
+    power.checked = getCookie("powerAC");
+    console.log(getCookie("powerAC"));
+} else {
+    power.checked = false;
+    setCookie("powerAC", "false");
+    console.log(getCookie("powerAC"));
+}
+
+
 if (Number(temp.textContent) == 18) {
     minus.style.backgroundColor = "#CCCCCC";
     minus.style.transform = "scale(1)";
@@ -19,7 +67,12 @@ if (Number(temp.textContent) == 26) {
 
 
 power.addEventListener("change", () => {
-    console.log(power.checked);
+    if (power.checked) {
+        setCookie("powerAC", "true");
+    } else {
+        setCookie("powerAC", "false");
+    }
+
     socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
 });
 
