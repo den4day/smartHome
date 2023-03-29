@@ -13,48 +13,50 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <nav class="header__nav">
-                <a class="header__backwards" href="/">
-                    <img class="header__arrow" src="img/arrow.svg" alt="arrow">
-                </a>
-                <div class="header__words">Venting Control</div>
-            </nav>
-        </header>
-        <section class="venting">
-            <div class="vent__section">
-                <div class="vent__left">
-                    <div class="vent__up">
-                        <div class="vent__header">Power</div>
-                        <label class="switch">
-                            <input class="switch__input" type="checkbox">
-                            <span class="switch__slider"></span>
-                        </label>
+        <div class="content">
+            <header class="header">
+                <nav class="header__nav">
+                    <a class="header__backwards" href="/">
+                        <img class="header__arrow" src="img/arrow.svg" alt="arrow">
+                    </a>
+                    <div class="header__words">Venting Control</div>
+                </nav>
+            </header>
+            <section class="venting">
+                <div class="vent__section">
+                    <div class="vent__left">
+                        <div class="vent__up">
+                            <div class="vent__header">Power</div>
+                            <label class="switch">
+                                <input class="switch__input" type="checkbox">
+                                <span class="switch__slider"></span>
+                            </label>
+                        </div>
+                        <div class="vent__down">
+                            <div class="vent__down-header">100 %</div>
+                            <div class="vent__down-text">Position</div>
+                        </div>
                     </div>
-                    <div class="vent__down">
-                        <div class="vent__down-header">100 %</div>
-                        <div class="vent__down-text">Position</div>
+                    <img class="vent__curtans" src="img/ventilation.svg" alt="venting">
+                </div>
+                <div class="vent__bottom">
+                    <div class="vent__bottom-text">Control</div>
+                    <div class="vent__footer">
+                        <select class="vent__select">
+                            <option class="vent__option" value="0">0%</option>
+                            <option class="vent__option" value="25">25%</option>
+                            <option class="vent__option" value="50">50%</option>
+                            <option class="vent__option" value="75">75%</option>
+                            <option class="vent__option" value="100">100%</option>
+                        </select>
+                        <div class="vent__changes">
+                            <button class="vent__indec" id="minus">−</button>
+                            <button class="vent__indec" id="plus">+</button>
+                        </div>
                     </div>
                 </div>
-                <img class="vent__curtans" src="img/ventilation.svg" alt="venting">
-            </div>
-            <div class="vent__bottom">
-                <div class="vent__bottom-text">Control</div>
-                <div class="vent__footer">
-                    <select class="vent__select">
-                        <option class="vent__option" value="0">0%</option>
-                        <option class="vent__option" value="25">25%</option>
-                        <option class="vent__option" value="50">50%</option>
-                        <option class="vent__option" value="75">75%</option>
-                        <option class="vent__option" value="100">100%</option>
-                    </select>
-                    <div class="vent__changes">
-                        <button class="vent__indec" id="minus">−</button>
-                        <button class="vent__indec" id="plus">+</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <footer class="footer">
             <div class="footer__container">
                 <div class="footer__header">Statistic</div>
