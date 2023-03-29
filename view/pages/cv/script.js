@@ -53,21 +53,31 @@ if (getCookie("powerCV") == "true") {
 }
 
 
+if (getCookie("cvState")) {
+	document.querySelector(".cv__down-header").textContent = getCookie("cvState");
+	photo.src = `/pages/cv/img/${getCookie("cvState")}.png`;
+}
+
+
 socket.on("names", rec_name => {
 	console.log(rec_name);
+
 	if (rec_name == "Artyom") {
 		name.textContent = "Artem";
-		photo.src = "/pages/cv/img/artyom.png"
+		photo.src = `/pages/cv/img/Artem.png`;
+		setCookie("cvState", name.textContent);
 	} else if (rec_name == "Android") {
 		name.textContent = "Andrew";
-		photo.src = "/pages/cv/img/andrey.png"
-		console.log(photo.src)
+		photo.src = `/pages/cv/img/Andrew.png`;
+		setCookie("cvState", name.textContent);
 	} else if (rec_name == "Susya") {
 		name.textContent = "Asya";
-		photo.src = "/pages/cv/img/asya.png"
+		photo.src = `/pages/cv/img/Asya.png`;
+		setCookie("cvState", name.textContent);
 	} else {
 		name.textContent = "Unknown";
-		photo.src = "/pages/cv/img/unknown.jpg"
+		photo.src = `/pages/cv/img/Unknown.png`
+		setCookie("cvState", name.textContent);
 	}
 });
 
@@ -78,7 +88,4 @@ power.addEventListener("change", () => {
 	} else {
 		setCookie("powerCV", "false");
 	}
-
-	// написать код отправки значения на python
-	// и на питоне включать или выключать CV
 });

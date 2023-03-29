@@ -53,6 +53,19 @@ if (getCookie("powerLight") == "true") {
 }
 
 
+if (getCookie("lightState")) {
+    document.querySelector(".light__down-header").textContent = getCookie("lightState");
+
+    switch (getCookie("lightState")) {
+        case "20%": lightRange.value = "51"; break;
+        case "40%": lightRange.value = "102"; break;
+        case "60%": lightRange.value = "153"; break;
+        case "80%": lightRange.value = "204"; break;
+        case "100%": lightRange.value = "255";
+    }
+}
+
+
 if (power.checked) {
     switch (lightRange.value) {
         case "51": info.textContent = "20%"; break;
@@ -61,9 +74,8 @@ if (power.checked) {
         case "204": info.textContent = "80%"; break;
         case "255": info.textContent = "100%";
     }
-} else {
-    info.textContent = "0%";
 }
+
 
 power.addEventListener("change", () => {
     if (power.checked) {
@@ -77,8 +89,6 @@ power.addEventListener("change", () => {
 
         setCookie("powerLight", "true");
     } else {
-        info.textContent = "0%";
-
         setCookie("powerLight", "false");
     }
 
@@ -87,15 +97,18 @@ power.addEventListener("change", () => {
 
 lightRange.addEventListener("change", () => {
     console.log(lightRange.value);
+
     socket.emit('pageLight', { brightness: Number(lightRange.value), powerLight: Number(power.checked) });
 
-    if (power.checked) {
-        switch (lightRange.value) {
-            case "51": info.textContent = "20%"; break;
-            case "102": info.textContent = "40%"; break;
-            case "153": info.textContent = "60%"; break;
-            case "204": info.textContent = "80%"; break;
-            case "255": info.textContent = "100%";
-        }
+    switch (lightRange.value) {
+        case "51": info.textContent = "20%"; break;
+        case "102": info.textContent = "40%"; break;
+        case "153": info.textContent = "60%"; break;
+        case "204": info.textContent = "80%"; break;
+        case "255": info.textContent = "100%";
     }
+
+    console.log(info.textContent);
+
+    setCookie("lightState", info.textContent);
 });

@@ -54,6 +54,18 @@ if (getCookie("powerBlinds") == "true") {
     console.log(getCookie("powerBlinds"));
 }
 
+if (getCookie("blindsState")) {
+    document.querySelector(".blinds__down-header").textContent = getCookie("blindsState");
+
+    switch (getCookie("blindsState")) {
+        case "0%": input.value = "0"; break;
+        case "25%": input.value = "45"; break;
+        case "50%": input.value = "90"; break;
+        case "75%": input.value = "135"; break;
+        case "100%": input.value = "180";
+    }
+}
+
 
 if (power.checked) {
     switch (input.value) {
@@ -63,9 +75,8 @@ if (power.checked) {
         case "135": info.textContent = "75%"; break;
         case "180": info.textContent = "100%";
     }
-} else {
-    info.textContent = "0%";
 }
+
 
 if (input.selectedIndex == 0) {
     minus.style.backgroundColor = "#CCCCCC";
@@ -92,11 +103,6 @@ power.addEventListener("change", () => {
 
         setCookie("powerBlinds", "true");
     } else {
-        info.textContent = "0%";
-        input.selectedIndex = 0;
-        minus.style.backgroundColor = "#CCCCCC";
-        minus.style.transform = "scale(1)";
-
         setCookie("powerBlinds", "false");
     }
 
@@ -148,6 +154,8 @@ input.addEventListener("change", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 minus.addEventListener("click", () => {
@@ -179,6 +187,8 @@ minus.addEventListener("click", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 plus.addEventListener("click", () => {
@@ -210,6 +220,8 @@ plus.addEventListener("click", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 

@@ -144,35 +144,49 @@ if (getCookie("powerRobot") == "true") {
 }
 
 
-if (document.cookie.indexOf("lightState") == 0) {
+if (getCookie("lightState")) {
     lightState.textContent = getCookie("lightState");
+    console.log(getCookie("lightState"));
 } else {
-    setCookie("lightState", "0%");
+    setCookie("lightState", "20%");
+    console.log(getCookie("lightState"));
 }
 
-if (document.cookie.indexOf("acState") == 0) {
+if (getCookie("acState")) {
     acState.textContent = getCookie("acState");
 } else {
-    setCookie("acState", "18 °C");
+    setCookie("acState", "18");
 }
 
-// if (getCookie("lightState")) {
-//     lightState.textContent = getCookie("lightState");
-// } else {
-//     setCookie("lightState", "0%");
-// }
+if (getCookie("blindsState")) {
+    blindsState.textContent = getCookie("blindsState");
+} else {
+    setCookie("blindsState", "0%");
+}
 
-// if (getCookie("lightState")) {
-//     lightState.textContent = getCookie("lightState");
-// } else {
-//     setCookie("lightState", "0%");
-// }
+if (getCookie("ventingState")) {
+    ventingState.textContent = getCookie("ventingState");
+} else {
+    setCookie("ventingState", "0%");
+}
 
-// if (getCookie("lightState")) {
-//     lightState.textContent = getCookie("lightState");
-// } else {
-//     setCookie("lightState", "0%");
-// }
+if (getCookie("cvState")) {
+    cvState.textContent = getCookie("cvState");
+} else {
+    setCookie("cvState", "Unknown");
+}
+
+if (getCookie("blindsState")) {
+    blindsState.textContent = getCookie("blindsState");
+} else {
+    setCookie("blindsState", "0%");
+}
+
+if (getCookie("robotState")) {
+    robotState.textContent = getCookie("robotState");
+} else {
+    setCookie("robotState", "0%");
+}
 
 
 tabsBtn.forEach(item =>

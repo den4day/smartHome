@@ -55,12 +55,18 @@ if (getCookie("powerAC") == "true") {
 }
 
 
+if (getCookie("acState")) {
+    document.querySelector(".ac__temp").textContent = getCookie("acState");
+
+}
+
+
 if (Number(temp.textContent) == 18) {
     minus.style.backgroundColor = "#CCCCCC";
     minus.style.transform = "scale(1)";
 }
 
-if (Number(temp.textContent) == 26) {
+if (Number(temp.textContent) == 28) {
     plus.style.backgroundColor = "#CCCCCC";
     plus.style.transform = "scale(1)";
 }
@@ -102,6 +108,8 @@ minus.addEventListener("click", () => {
     } else {
         console.log('меньше 18 нельзя!');
     }
+
+    setCookie("acState", temp.textContent);
 });
 
 plus.addEventListener("click", () => {
@@ -127,6 +135,8 @@ plus.addEventListener("click", () => {
     } else {
         console.log('больше 28 нельзя!');
     }
+
+    setCookie("acState", temp.textContent);
 });
 
 
