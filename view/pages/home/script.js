@@ -18,6 +18,13 @@ let powerVenting = document.querySelector('#venting');
 let powerCV = document.querySelector('#cv');
 let powerRobot = document.querySelector('#robot');
 
+let lightState = document.querySelector('#lightState');
+let acState = document.querySelector('#acState');
+let blindsState = document.querySelector('#blindsState');
+let ventingState = document.querySelector('#ventingState');
+let cvState = document.querySelector('#cvState');
+let robotState = document.querySelector('#robotState');
+
 
 function setCookie(name, value, options = {}) {
     options = {
@@ -135,6 +142,37 @@ if (getCookie("powerRobot") == "true") {
     setCookie("powerRobot", "false");
     console.log(getCookie("powerRobot"));
 }
+
+
+if (getCookie("lightState")) {
+    lightState.textContent = getCookie("lightState");
+} else {
+    setCookie("lightState", "0%");
+}
+
+if (getCookie("acState")) {
+    lightState.textContent = getCookie("acState");
+} else {
+    setCookie("acState", "18 °C");
+}
+
+// if (getCookie("lightState")) {
+//     lightState.textContent = getCookie("lightState");
+// } else {
+//     setCookie("lightState", "0%");
+// }
+
+// if (getCookie("lightState")) {
+//     lightState.textContent = getCookie("lightState");
+// } else {
+//     setCookie("lightState", "0%");
+// }
+
+// if (getCookie("lightState")) {
+//     lightState.textContent = getCookie("lightState");
+// } else {
+//     setCookie("lightState", "0%");
+// }
 
 
 tabsBtn.forEach(item =>
