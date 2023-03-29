@@ -144,14 +144,14 @@ if (getCookie("powerRobot") == "true") {
 }
 
 
-if (getCookie("lightState")) {
+if (document.cookie.indexOf("lightState") == 0) {
     lightState.textContent = getCookie("lightState");
 } else {
     setCookie("lightState", "0%");
 }
 
-if (getCookie("acState")) {
-    lightState.textContent = getCookie("acState");
+if (document.cookie.indexOf("acState") == 0) {
+    acState.textContent = getCookie("acState");
 } else {
     setCookie("acState", "18 °C");
 }
