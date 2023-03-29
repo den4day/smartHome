@@ -3,6 +3,12 @@ let tabsTile = document.querySelectorAll('.control__tile');
 let btnOff = document.querySelector('.footer__btn');
 let tumblers = document.querySelectorAll('.switch__input');
 
+let activeTab = document.querySelector(".control__item--active");
+let tab1 = document.querySelector('li[data-tab="1"]');
+let tab2 = document.querySelector('li[data-tab="2"]');
+let tab3 = document.querySelector('li[data-tab="3"]');
+let tab4 = document.querySelector('li[data-tab="4"]');
+
 let powerLight = document.querySelector('#light');
 let powerAC = document.querySelector('#ac');
 let powerBlinds = document.querySelector('#blinds');
@@ -145,7 +151,39 @@ tabsBtn.forEach(item =>
     })
 );
 
-document.querySelector(".control__item").click();
+
+if (getCookie("activeTab") == "living") {
+    tab1.click();
+    console.log(getCookie("activeTab"), "click");
+} else if (getCookie("activeTab") == "bedroom") {
+    tab2.click();
+    console.log(getCookie("activeTab"), "click");
+} else if (getCookie("activeTab") == "dinning") {
+    tab3.click();
+    console.log(getCookie("activeTab"), "click");
+} else if (getCookie("activeTab") == "courtyard") {
+    tab4.click();
+    console.log(getCookie("activeTab"), "click");
+} else {
+    tab1.click();
+    setCookie("activeTab", "living");
+    console.log(getCookie("activeTab"), "click");
+}
+
+
+tab1.addEventListener("click", () => {
+    setCookie("activeTab", "living");
+});
+
+tab2.addEventListener("click", () => {
+    setCookie("activeTab", "bedroom");
+});
+tab3.addEventListener("click", () => {
+    setCookie("activeTab", "dinning");
+});
+tab4.addEventListener("click", () => {
+    setCookie("activeTab", "courtyard");
+});
 
 
 powerLight.addEventListener("click", () => {
