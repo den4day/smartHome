@@ -101,8 +101,6 @@ io.on('connect', (socket) => {
     socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
-        console.log(dataHome);
-
         io.emit("tempAndHum", { temp: parseInt(obj.temp), hum: parseInt(obj.hum) });
     });
 
@@ -113,6 +111,8 @@ io.on('connect', (socket) => {
         dataHome.powerVenting = data.powerVenting;
         dataHome.powerCV = data.powerCV;
         dataHome.powerRobot = data.powerRobot;
+
+        console.log(dataHome);
 
         io.emit('homeControll', dataHome);
     });

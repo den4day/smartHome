@@ -175,7 +175,6 @@ if (getCookie("activeTab") == "living") {
 
 tab1.addEventListener("click", () => {
     setCookie("activeTab", "living");
-    socket.emit("pageHome", {})
 });
 
 tab2.addEventListener("click", () => {
@@ -199,6 +198,15 @@ powerLight.addEventListener("click", () => {
         setCookie("powerLight", "false");
         console.log(getCookie("powerLight"));
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 powerAC.addEventListener("click", () => {
@@ -207,6 +215,15 @@ powerAC.addEventListener("click", () => {
     } else {
         setCookie("powerAC", "false");
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 powerBlinds.addEventListener("click", () => {
@@ -215,6 +232,15 @@ powerBlinds.addEventListener("click", () => {
     } else {
         setCookie("powerBlinds", "false");
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 powerVenting.addEventListener("click", () => {
@@ -223,6 +249,15 @@ powerVenting.addEventListener("click", () => {
     } else {
         setCookie("powerVenting", "false");
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 powerCV.addEventListener("click", () => {
@@ -231,6 +266,15 @@ powerCV.addEventListener("click", () => {
     } else {
         setCookie("powerCV", "false");
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 powerRobot.addEventListener("click", () => {
@@ -239,6 +283,15 @@ powerRobot.addEventListener("click", () => {
     } else {
         setCookie("powerRobot", "false");
     }
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 btnOff.addEventListener("click", () => {
@@ -253,6 +306,15 @@ btnOff.addEventListener("click", () => {
     setCookie("powerVenting", "false");
     setCookie("powerCV", "false");
     setCookie("powerRobot", "false");
+
+    socket.emit("pageHome", {
+        powerLight: Number(powerLight.checked),
+        powerAC: Number(powerAC.checked),
+        powerBlinds: Number(powerBlinds.checked),
+        powerVenting: Number(powerVenting.checked),
+        powerCV: Number(powerCV.checked),
+        powerRobot: Number(powerRobot.checked)
+    });
 });
 
 
