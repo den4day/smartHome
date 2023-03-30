@@ -64,7 +64,7 @@ power.addEventListener("change", () => {
         plus.style.transform = "scale(1)";
     }
 
-    socket.emit('pageVenting', { powerVenting: power.checked, speed: Number(input.value) });
+    socket.emit('pageVenting', { powerVenting: Number(power.checked), speed: Number(input.value) });
 });
 
 input.addEventListener("change", () => {

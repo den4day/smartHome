@@ -20,12 +20,12 @@ if (Number(temp.textContent) == 26) {
 
 power.addEventListener("change", () => {
     console.log(power.checked);
-    socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+    socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 });
 
 select.addEventListener("change", () => {
     console.log(select.value);
-    socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+    socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 });
 
 minus.addEventListener("click", () => {
@@ -34,7 +34,7 @@ minus.addEventListener("click", () => {
     if (Number(temp.textContent) > 18) {
         temp.textContent = Number(temp.textContent) - 1;
         console.log(Number(temp.textContent));
-        socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+        socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
         minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -59,7 +59,7 @@ plus.addEventListener("click", () => {
 
         console.log(Number(temp.textContent));
 
-        socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+        socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
         minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
