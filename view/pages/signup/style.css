@@ -115,6 +115,26 @@ body {
     .upper, .footer {
         max-width: 720px;
     }
+
+    .singup__input_e {
+        font-size: 18px;
+    }
+
+    .singup__input_p {
+        font-size: 18px;
+    }
+
+    .singup__btn {
+        font-size: 18px;
+    }
+
+    .text__up {
+        font-size: 16px;
+    }
+
+    .text__down {
+        font-size: 16px;
+    }
 }
 
 @media (min-width: 768px) {

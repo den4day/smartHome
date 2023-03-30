@@ -118,7 +118,28 @@ body {
     .upper, .footer {
         max-width: 720px;
     }
+
+    .singin__input_e {
+        font-size: 18px;
+    }
+
+    .singin__input_p {
+        font-size: 18px;
+    }
+
+    .singin__btn {
+        font-size: 18px;
+    }
+
+    .text__up {
+        font-size: 16px;
+    }
+
+    .text__down {
+        font-size: 16px;
+    }
 }
+
 
 @media (min-width: 768px) {
     .upper, .footer {

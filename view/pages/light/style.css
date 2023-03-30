@@ -323,12 +323,48 @@ body {
     .container {
         max-width: 720px;
     }
+
+    .header__words {
+        font-size: 18px;
+    }
+
+    .light__header{
+        font-size: 18px;
+    }
+
+    .light__down-header {
+        font-size: 18px;
+    }
+
+    .light__down-text {
+        font-size: 14px;
+    }
+
+    .light__bottom-text {
+        font-size: 18px;
+    }
+
+    .footer__header {
+        font-size: 18px;
+    }
+
+    .footer__usage, .footer__let {
+        font-size: 14px;
+    }
+
+    .footer__num {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 0px;
         max-width: 540px;
+    }
+    
+    .header__nav {
+        margin-top: 20px;
     }
 }
 

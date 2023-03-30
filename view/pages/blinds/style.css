@@ -118,6 +118,7 @@ body {
 .blinds__header {
     font-size: 16px;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .blinds__down-header {
@@ -281,12 +282,56 @@ body {
     .container {
         max-width: 720px;
     }
+
+    .header__words {
+        font-size: 18px;
+    }
+
+    .blinds__header{
+        font-size: 18px;
+    }
+
+    .blinds__down-header {
+        font-size: 18px;
+    }
+
+    .blinds__down-text {
+        font-size: 14px;
+    }
+
+    .blinds__bottom-text {
+        font-size: 18px;
+    }
+
+    .footer__header {
+        font-size: 18px;
+    }
+
+    .footer__usage, .footer__let {
+        font-size: 14px;
+    }
+
+    .footer__num {
+        font-size: 18px;
+    }
+
+    .blinds__bottom-text {
+        font-size: 18px;
+    }
+
+    .blinds__select {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 0px;
         max-width: 540px;
+    }
+
+    .header__nav {
+        margin-top: 20px;
     }
 }
 
