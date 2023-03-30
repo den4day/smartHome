@@ -76,7 +76,7 @@
                 </div>
                 <div class="control__info">
                     <div class="control__header">Light</div>
-                    <div class="control__text">20%</div>
+                    <div class="control__text" id="lightState">20%</div>
                 </div>
             </a>
             <a class="control__tile group1 group2" href="/ac">
@@ -89,7 +89,9 @@
                 </div>
                 <div class="control__info">
                     <div class="control__header">AC</div>
-                    <div class="control__text">18 °C</div>
+                    <div class="control__text">
+                        <span id="acState">18 </span> °C
+                    </div>
                 </div>
             </a>
             <a class="control__tile group1 group2" href="/blinds">
@@ -102,7 +104,7 @@
                 </div>
                 <div class="control__info">
                     <div class="control__header">Blinds</div>
-                    <div class="control__text">100%</div>
+                    <div class="control__text" id="blindsState">0%</div>
                 </div>
             </a>
             <a class="control__tile group1 group2 group3" href="/venting">
@@ -115,7 +117,7 @@
                 </div>
                 <div class="control__info group1">
                     <div class="control__header">Venting</div>
-                    <div class="control__text">25%</div>
+                    <div class="control__text" id="ventingState">0%</div>
                 </div>
             </a>
             <a class="control__tile group1 group4" href="/cv">
@@ -128,7 +130,7 @@
                 </div>
                 <div class="control__info">
                     <div class="control__header">CV</div>
-                    <div class="control__text">45 °</div>
+                    <div class="control__text" id="cvState">Unknown</div>
                 </div>
             </a>
             <a class="control__tile group1" href="/robot">
@@ -141,7 +143,7 @@
                 </div>
                 <div class="control__info">
                     <div class="control__header">Robot</div>
-                    <div class="control__text">80%</div>
+                    <div class="control__text" id="robotState">80%</div>
                 </div>
             </a>
         </section>

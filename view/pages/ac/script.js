@@ -55,12 +55,18 @@ if (getCookie("powerAC") == "true") {
 }
 
 
+if (getCookie("acState")) {
+    document.querySelector(".ac__temp").textContent = getCookie("acState");
+
+}
+
+
 if (Number(temp.textContent) == 18) {
     minus.style.backgroundColor = "#CCCCCC";
     minus.style.transform = "scale(1)";
 }
 
-if (Number(temp.textContent) == 26) {
+if (Number(temp.textContent) == 28) {
     plus.style.backgroundColor = "#CCCCCC";
     plus.style.transform = "scale(1)";
 }
@@ -78,7 +84,7 @@ power.addEventListener("change", () => {
 
 select.addEventListener("change", () => {
     console.log(select.value);
-    socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+    socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 });
 
 minus.addEventListener("click", () => {
@@ -87,7 +93,7 @@ minus.addEventListener("click", () => {
     if (Number(temp.textContent) > 18) {
         temp.textContent = Number(temp.textContent) - 1;
         console.log(Number(temp.textContent));
-        socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+        socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
         minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -102,6 +108,8 @@ minus.addEventListener("click", () => {
     } else {
         console.log('меньше 18 нельзя!');
     }
+
+    setCookie("acState", temp.textContent);
 });
 
 plus.addEventListener("click", () => {
@@ -112,7 +120,7 @@ plus.addEventListener("click", () => {
 
         console.log(Number(temp.textContent));
 
-        socket.emit('pageAC', { powerAC: power.checked, mode: Number(select.value), temp: Number(temp.textContent) });
+        socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
         minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -127,6 +135,8 @@ plus.addEventListener("click", () => {
     } else {
         console.log('больше 28 нельзя!');
     }
+
+    setCookie("acState", temp.textContent);
 });
 
 
