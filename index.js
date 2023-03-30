@@ -1,5 +1,6 @@
 let PORT = process.env.PORT || 3000;
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 let http = require('http');
 let server = http.Server(app);
@@ -51,19 +52,25 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/view/pages/signup/index.html');
 });
 
-
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
 
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post("/cv", (req, res) => {
+    let rec_name = req.body.name;
+    io.emit("names", rec_name);
+});
+
+
 let dataHome = {
+    powerLight: 0,
     powerAC: 0,
     powerBlinds: 0,
-    powerCV: 0,
-    powerLight: 0,
-    powerRobot: 0,
     powerVenting: 0,
-    temp: 0,
-    hum: 0
+    powerCV: 0,
+    powerRobot: 0
 };
 
 let dataLight = {
@@ -94,12 +101,20 @@ io.on('connect', (socket) => {
     socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
-        dataHome.temp = parseInt(obj.temp);
-        dataHome.hum = parseInt(obj.hum);
+        io.emit("tempAndHum", { temp: parseInt(obj.temp), hum: parseInt(obj.hum) });
+    });
+
+    socket.on('pageHome', data => {
+        dataHome.powerLight = data.powerLight;
+        dataHome.powerAC = data.powerAC;
+        dataHome.powerBlinds = data.powerBlinds;
+        dataHome.powerVenting = data.powerVenting;
+        dataHome.powerCV = data.powerCV;
+        dataHome.powerRobot = data.powerRobot;
 
         console.log(dataHome);
 
-        io.emit("tempAndHum", { temp: dataHome.temp, hum: dataHome.hum });
+        io.emit('homeControll', dataHome);
     });
 
     socket.on('pageLight', data => {

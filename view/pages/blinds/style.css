@@ -1,8 +1,4 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
     font-family: "Montserrat", serif;
     background-color: #F0EFF4;
 }
@@ -12,8 +8,11 @@ body {
     font-size: 12px;
     font-weight: 400;
     line-height: 21px;
-    min-width: 720px;
     margin: 0px auto;
+}
+
+.content {
+    min-height: calc(100vh - 330px);
 }
 
 .header {
@@ -240,7 +239,7 @@ body {
     border-radius: 50px 50px 0px 0px;
 }
 
-.footer .container {
+.footer__container {
     padding: 40px 20px 20px;
     border-radius: 50px 50px 0px 0px;
     border: 1px solid #000000;
@@ -276,4 +275,36 @@ body {
     border-radius: 10px;
     background-color: #FFFFFF;
     opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0px;
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 540px) {
+    .container {
+        padding: 0px;
+        max-width: 720px;
+    }
+
+    .header {
+        padding: 0px 20px;
+    }
+
+    .blinds {
+        padding: 0px 20px;
+    }
+
+    .header__nav {
+        margin-top: 20px;
+    }
 }

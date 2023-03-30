@@ -1,11 +1,19 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     font-family: "Montserrat", serif;
     background-color: #F0EFF4;
 }
 
+.container {
+    padding: 20px 20px 0px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21px;
+    margin: 0px auto;
+}
+
+.content {
+    min-height: calc(100vh - 320px);
+}
 
 .wrapper {
     padding: 20px;
@@ -38,15 +46,6 @@ body {
 
 canvas {
     position: absolute;
-}
-
-.container {
-    padding: 20px 20px 0px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 21px;
-    min-width: 720px;
-    margin: 0px auto;
 }
 
 .header {
@@ -168,6 +167,15 @@ canvas {
     height: 80px;
 }
 
+.cv__photo {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 40px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
+
 .cv__bottom {
     margin-bottom: 40px;
 }
@@ -183,7 +191,7 @@ canvas {
     border-radius: 50px 50px 0px 0px;
 }
 
-.footer .container {
+.footer__container {
     padding: 40px 20px 20px;
     border-radius: 50px 50px 0px 0px;
     border: 1px solid #000000;
@@ -227,4 +235,36 @@ canvas {
     border-radius: 10px;
     background-color: #FFFFFF;
     opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0px;
+        max-width: 540px;
+    }
+}
+
+@media (max-width: 540px) {
+    .container {
+        padding: 0px;
+        max-width: 720px;
+    }
+
+    .header {
+        padding: 0px 20px;
+    }
+
+    .cv {
+        padding: 0px 20px;
+    }
+
+    .header__nav {
+        margin-top: 20px;
+    }
 }

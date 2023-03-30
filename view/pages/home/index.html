@@ -15,21 +15,20 @@
     <div class="container">
         <header class="header">
             <nav class="header__nav">
-                <img class="header__burger" src="img/burgerMenu.svg" alt="burger-menu">
-                <a class="header__avatar" href="/">
+                <div class="header__greet">
+                    <div class="header__name">Hi Alexander</div>
+                    <div class="header__welcome">Welcome to your smart home</div>
+                </div>
+                <a class="header__avatar" href="/signup">
                     <img class="header__image" src="img/avatar.svg" alt="avatar">
                 </a>
             </nav>
-            <div class="header__greet">
-                <div class="header__name">Hi Alexander</div>
-                <div class="header__welcome">Welcome to your smart home</div>
-            </div>
         </header>
         <article class="weather">
             <div class="weather__container">
                 <img class="weather__img" src="img/cloudy.svg" alt="weather">
                 <div class="weather__info">
-                    <div class="weather__header">Cloudy</div>
+                    <div class="weather__header">Clouds</div>
                     <div class="weather__text">Tuesday, 13 April 2023</div>
                 </div>
             </div>
@@ -38,7 +37,7 @@
                     <div class="weather__article">Indor Temp</div>
                     <div class="weather__bg">
                         <div class="weather__data">
-                            <span class="weather__tempIn">---</span> °C
+                            <span class="weather__tempIn">&nbsp;&nbsp;</span> °C
                         </div>
                     </div>
                 </div>
@@ -46,7 +45,7 @@
                     <div class="weather__article">Humidity</div>
                     <div class="weather__bg">
                         <div class="weather__data">
-                            <span class="weather__hum">---</span>%
+                            <span class="weather__hum">&nbsp;&nbsp;</span>%
                         </div>
                     </div>
                 </div>
@@ -54,7 +53,7 @@
                     <div class="weather__article">Outdor Temp</div>
                     <div class="weather__bg">
                         <div class="weather__data">
-                            <span class="weather__tempOut">---</span> °C
+                            <span class="weather__tempOut">&nbsp;&nbsp;</span> °C
                         </div>
                     </div>
                 </div>
@@ -71,78 +70,80 @@
                 <div class="control__up">
                     <img class="control__image" src="img/lamp.svg" alt="lamp">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="light">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info">
                     <div class="control__header">Light</div>
-                    <div class="control__text">20%</div>
+                    <div class="control__text" id="lightState">20%</div>
                 </div>
             </a>
             <a class="control__tile group1 group2" href="/ac">
                 <div class="control__up">
                     <img class="control__image" src="img/snowflake.png" alt="AC">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="ac">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info">
                     <div class="control__header">AC</div>
-                    <div class="control__text">18 °C</div>
+                    <div class="control__text">
+                        <span id="acState">18 </span> °C
+                    </div>
                 </div>
             </a>
             <a class="control__tile group1 group2" href="/blinds">
                 <div class="control__up">
                     <img class="control__image" src="img/curtains.svg" alt="blinds">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="blinds">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info">
                     <div class="control__header">Blinds</div>
-                    <div class="control__text">100%</div>
+                    <div class="control__text" id="blindsState">0%</div>
                 </div>
             </a>
-            <a class="control__tile group1 group3" href="/venting">
+            <a class="control__tile group1 group2 group3" href="/venting">
                 <div class="control__up">
                     <img class="control__image" src="img/ventilation.svg" alt="venting">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="venting">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info group1">
                     <div class="control__header">Venting</div>
-                    <div class="control__text">25%</div>
+                    <div class="control__text" id="ventingState">0%</div>
                 </div>
             </a>
             <a class="control__tile group1 group4" href="/cv">
                 <div class="control__up">
                     <img class="control__image" src="img/cv.svg" alt="CV">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="cv">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info">
                     <div class="control__header">CV</div>
-                    <div class="control__text">45 °</div>
+                    <div class="control__text" id="cvState">Unknown</div>
                 </div>
             </a>
             <a class="control__tile group1" href="/robot">
                 <div class="control__up">
                     <img class="control__image" src="img/robot.svg" alt="robot">
                     <label class="switch">
-                        <input class="switch__input" type="checkbox">
+                        <input class="switch__input" type="checkbox" id="robot">
                         <span class="switch__slider"></span>
                     </label>
                 </div>
                 <div class="control__info">
                     <div class="control__header">Robot</div>
-                    <div class="control__text">80%</div>
+                    <div class="control__text" id="robotState">80%</div>
                 </div>
             </a>
         </section>
@@ -151,6 +152,7 @@
         </footer>
     </div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/pages/home/script.js"></script>
 </body>
 

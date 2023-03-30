@@ -7,6 +7,66 @@ let minus = document.querySelector('#minus');
 let plus = document.querySelector('#plus');
 
 
+function setCookie(name, value, options = {}) {
+    options = {
+        path: '/',
+        // при необходимости добавьте другие значения по умолчанию
+        ...options
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function deleteCookie(name) {
+    setCookie(name, "", {
+        'max-age': -1
+    })
+}
+
+
+if (getCookie("powerBlinds") == "true") {
+    power.checked = getCookie("powerBlinds");
+    console.log(getCookie("powerBlinds"));
+} else {
+    power.checked = false;
+    setCookie("powerBlinds", "false");
+    console.log(getCookie("powerBlinds"));
+}
+
+if (getCookie("blindsState")) {
+    document.querySelector(".blinds__down-header").textContent = getCookie("blindsState");
+
+    switch (getCookie("blindsState")) {
+        case "0%": input.value = "0"; break;
+        case "25%": input.value = "45"; break;
+        case "50%": input.value = "90"; break;
+        case "75%": input.value = "135"; break;
+        case "100%": input.value = "180";
+    }
+}
+
+
 if (power.checked) {
     switch (input.value) {
         case "0": info.textContent = "0%"; break;
@@ -15,9 +75,8 @@ if (power.checked) {
         case "135": info.textContent = "75%"; break;
         case "180": info.textContent = "100%";
     }
-} else {
-    info.textContent = "0%";
 }
+
 
 if (input.selectedIndex == 0) {
     minus.style.backgroundColor = "#CCCCCC";
@@ -41,11 +100,10 @@ power.addEventListener("change", () => {
             case "135": info.textContent = "75%"; break;
             case "180": info.textContent = "100%";
         }
+
+        setCookie("powerBlinds", "true");
     } else {
-        info.textContent = "0%";
-        input.selectedIndex = 0;
-        minus.style.backgroundColor = "#CCCCCC";
-        minus.style.transform = "scale(1)";
+        setCookie("powerBlinds", "false");
     }
 
     if (input.selectedIndex == 0) {
@@ -96,6 +154,8 @@ input.addEventListener("change", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 minus.addEventListener("click", () => {
@@ -127,6 +187,8 @@ minus.addEventListener("click", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 plus.addEventListener("click", () => {
@@ -158,6 +220,8 @@ plus.addEventListener("click", () => {
     }
 
     socket.emit('pageBlinds', { powerBlinds: power.checked, stage: Number(input.value) });
+
+    setCookie("blindsState", info.textContent);
 });
 
 
