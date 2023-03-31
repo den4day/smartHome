@@ -1,10 +1,10 @@
 let PORT = process.env.PORT || 3000;
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+let express = require('express');
+let bodyParser = require('body-parser');
+let app = express();
 let http = require('http');
 let server = http.Server(app);
-const io = require("socket.io")(server, {
+let io = require("socket.io")(server, {
     cors: {
         origin: "*",
         transports: ["websocket", "polling"],
