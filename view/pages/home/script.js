@@ -82,6 +82,10 @@ function getWeather() {
     axios.get(url).then(res => {
         document.querySelector('.weather__tempOut').innerHTML = Math.round(res.data.main.temp);
         document.querySelector('.weather__header').innerHTML = res.data.weather["0"].main;
+
+        if (res.data.weather["0"].main == "Snow") {
+            document.querySelector('.weather__img').src = "img/snow.svg";
+        }
     });
 }
 
