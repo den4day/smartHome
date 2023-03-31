@@ -3,6 +3,7 @@ body {
     background-color: #F0EFF4;
 }
 
+
 .container {
     padding: 20px 20px 0px;
     font-size: 12px;
@@ -14,6 +15,7 @@ body {
 .content {
     min-height: calc(100vh - 320px);
 }
+
 
 .header {
     margin-bottom: 40px;
@@ -41,7 +43,6 @@ body {
     margin-right: auto;
 }
 
-/* .robot {} */
 
 .switch {
     display: block;
@@ -50,7 +51,6 @@ body {
     height: 20px;
 }
 
-/*скрыть стандартное оформление чекбокса*/
 .switch__input {
     width: 0;
     height: 0;
@@ -87,12 +87,10 @@ body {
     box-sizing: border-box;
 }
 
-/*стиль при фокусе на компонент*/
 .switch__input:focus+.switch__slider {
     box-shadow: 0 0 1px rgba(102, 161, 255, 0.5);
 }
 
-/*стили при выборе флага компонента*/
 .switch__input:checked+.switch__slider {
     background-color: rgba(102, 161, 255, 0.5);
 }
@@ -103,13 +101,12 @@ body {
     -ms-transform: translateX(20px);
 }
 
+
 .robot__section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 160px;
 }
-
-/* .robot__left {} */
 
 .robot__up {
     margin-bottom: 20px;
@@ -157,19 +154,11 @@ body {
     margin-bottom: 40px;
 }
 
-/* .footer__line {
-} */
-
 .footer__row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
-
-/* .footer__usage {
-}
-.footer__data {
-} */
 
 .footer__num {
     font-size: 16px;
@@ -191,6 +180,7 @@ body {
     opacity: 1;
 }
 
+
 @media (min-width: 1024px) {
     .container {
         max-width: 720px;
@@ -200,7 +190,7 @@ body {
         font-size: 18px;
     }
 
-    .robot__header{
+    .robot__header {
         font-size: 18px;
         margin-bottom: 10px;
     }
@@ -221,7 +211,8 @@ body {
         font-size: 18px;
     }
 
-    .footer__usage, .footer__let {
+    .footer__usage,
+    .footer__let {
         font-size: 14px;
     }
 

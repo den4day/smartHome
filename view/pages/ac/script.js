@@ -10,7 +10,6 @@ let plus = document.querySelector('#plus');
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -23,6 +22,7 @@ function setCookie(name, value, options = {}) {
     for (let optionKey in options) {
         updatedCookie += "; " + optionKey;
         let optionValue = options[optionKey];
+
         if (optionValue !== true) {
             updatedCookie += "=" + optionValue;
         }
@@ -35,6 +35,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -47,11 +48,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerAC") == "true") {
     power.checked = getCookie("powerAC");
-    console.log(getCookie("powerAC"));
 } else {
     power.checked = false;
     setCookie("powerAC", "false");
-    console.log(getCookie("powerAC"));
 }
 
 
@@ -83,16 +82,13 @@ power.addEventListener("change", () => {
 });
 
 select.addEventListener("change", () => {
-    console.log(select.value);
     socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 });
 
 minus.addEventListener("click", () => {
-    console.log("minus click");
-
     if (Number(temp.textContent) > 18) {
         temp.textContent = Number(temp.textContent) - 1;
-        console.log(Number(temp.textContent));
+
         socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
         minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -105,20 +101,14 @@ minus.addEventListener("click", () => {
             minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
             plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         }
-    } else {
-        console.log('меньше 18 нельзя!');
     }
 
     setCookie("acState", temp.textContent);
 });
 
 plus.addEventListener("click", () => {
-    console.log("plus click");
-
     if (Number(temp.textContent) < 28) {
         temp.textContent = Number(temp.textContent) + 1;
-
-        console.log(Number(temp.textContent));
 
         socket.emit('pageAC', { powerAC: Number(power.checked), mode: Number(select.value), temp: Number(temp.textContent) });
 
@@ -132,8 +122,6 @@ plus.addEventListener("click", () => {
             minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
             plus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
         }
-    } else {
-        console.log('больше 28 нельзя!');
     }
 
     setCookie("acState", temp.textContent);

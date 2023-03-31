@@ -1,9 +1,9 @@
 const power = document.querySelector('.switch__input');
 
+
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -28,6 +28,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -40,11 +41,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerRobot") == "true") {
     power.checked = getCookie("powerRobot");
-    console.log(getCookie("powerRobot"));
 } else {
     power.checked = false;
     setCookie("powerRobot", "false");
-    console.log(getCookie("powerRobot"));
 }
 
 
@@ -57,6 +56,3 @@ power.addEventListener("change", () => {
 
     socket.emit('pageRobot', { powerRobot: power.checked });
 });
-
-
-

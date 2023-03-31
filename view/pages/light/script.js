@@ -8,7 +8,6 @@ let info = document.querySelector(".light__down-header");
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -33,6 +32,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -45,11 +45,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerLight") == "true") {
     power.checked = getCookie("powerLight");
-    console.log(getCookie("powerLight"));
 } else {
     power.checked = false;
     setCookie("powerLight", "false");
-    console.log(getCookie("powerLight"));
 }
 
 
@@ -96,8 +94,6 @@ power.addEventListener("change", () => {
 });
 
 lightRange.addEventListener("change", () => {
-    console.log(lightRange.value);
-
     socket.emit('pageLight', { brightness: Number(lightRange.value), powerLight: Number(power.checked) });
 
     switch (lightRange.value) {
@@ -107,8 +103,6 @@ lightRange.addEventListener("change", () => {
         case "204": info.textContent = "80%"; break;
         case "255": info.textContent = "100%";
     }
-
-    console.log(info.textContent);
 
     setCookie("lightState", info.textContent);
 });

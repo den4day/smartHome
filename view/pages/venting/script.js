@@ -10,7 +10,6 @@ let plus = document.querySelector('#plus');
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -35,6 +34,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -47,11 +47,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerVenting") == "true") {
     power.checked = getCookie("powerVenting");
-    console.log(getCookie("powerVenting"));
 } else {
     power.checked = false;
     setCookie("powerVenting", "false");
-    console.log(getCookie("powerVenting"));
 }
 
 
@@ -127,8 +125,6 @@ power.addEventListener("change", () => {
 });
 
 input.addEventListener("change", () => {
-    console.log(Number(input.value));
-
     switch (input.value) {
         case "0": info.textContent = "0%"; break;
         case "25": info.textContent = "25%"; break;
@@ -160,8 +156,6 @@ input.addEventListener("change", () => {
 });
 
 minus.addEventListener("click", () => {
-    console.log("minus click");
-
     if (input.selectedIndex > 0) {
         input.selectedIndex -= 1;
 
@@ -172,8 +166,6 @@ minus.addEventListener("click", () => {
             case "75": info.textContent = "75%"; break;
             case "100": info.textContent = "100%";
         }
-    } else {
-        console.log("меньше нельзя!");
     }
 
     minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -193,8 +185,6 @@ minus.addEventListener("click", () => {
 });
 
 plus.addEventListener("click", () => {
-    console.log("plus click");
-
     if (input.selectedIndex < 4) {
         input.selectedIndex += 1;
 
@@ -205,8 +195,6 @@ plus.addEventListener("click", () => {
             case "75": info.textContent = "75%"; break;
             case "100": info.textContent = "100%";
         }
-    } else {
-        console.log("больше нельзя!");
     }
 
     minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";

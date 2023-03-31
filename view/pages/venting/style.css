@@ -3,6 +3,7 @@ body {
     background-color: #F0EFF4;
 }
 
+
 .container {
     padding: 20px 20px 0px;
     font-size: 12px;
@@ -14,6 +15,7 @@ body {
 .content {
     min-height: calc(100vh - 330px);
 }
+
 
 .header {
     margin-bottom: 40px;
@@ -41,8 +43,6 @@ body {
     margin-right: auto;
 }
 
-/* .venting {} */
-
 .switch {
     display: block;
     position: relative;
@@ -50,7 +50,6 @@ body {
     height: 20px;
 }
 
-/*скрыть стандартное оформление чекбокса*/
 .switch__input {
     width: 0;
     height: 0;
@@ -87,12 +86,10 @@ body {
     box-sizing: border-box;
 }
 
-/*стиль при фокусе на компонент*/
 .switch__input:focus+.switch__slider {
     box-shadow: 0 0 1px rgba(102, 161, 255, 0.5);
 }
 
-/*стили при выборе флага компонента*/
 .switch__input:checked+.switch__slider {
     background-color: rgba(102, 161, 255, 0.5);
 }
@@ -103,13 +100,12 @@ body {
     -ms-transform: translateX(20px);
 }
 
+
 .vent__section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
-
-/* .vent__left {} */
 
 .vent__up {
     margin-bottom: 20px;
@@ -151,20 +147,6 @@ body {
     justify-content: space-between;
 }
 
-/* .vent__label {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(102, 161, 255, 0.5);
-    width: 140px;
-    height: 40px;
-    border: 1px solid #000000;
-    padding: 0px 15px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-} */
-
 .vent__select {
     background-color: rgba(102, 161, 255, 0.5);
     width: 140px;
@@ -179,16 +161,6 @@ body {
 .vent__select:focus {
     outline: none;
 }
-
-/* .blinds__input {
-    font-weight: 700;
-    padding-right: 5px;
-    width: 100%;
-    background-color: rgba(102, 161, 255, 0);
-    padding: 10px 0px;
-    border: none;
-    outline: none;
-} */
 
 .vent__input::-webkit-outer-spin-button,
 .vent__input::-webkit-inner-spin-button {
@@ -215,8 +187,7 @@ body {
 .vent__indec {
     width: 40px;
     height: 40px;
-    margin: 0 5px;
-    /* padding: 10px; */
+    margin: 0px 5px;
     font-size: 30px;
     font-weight: 500;
     color: #000;
@@ -269,6 +240,7 @@ body {
     opacity: 1;
 }
 
+
 @media (min-width: 1024px) {
     .container {
         max-width: 720px;
@@ -278,7 +250,7 @@ body {
         font-size: 18px;
     }
 
-    .vent__header{
+    .vent__header {
         font-size: 18px;
     }
 
@@ -298,7 +270,8 @@ body {
         font-size: 18px;
     }
 
-    .footer__usage, .footer__let {
+    .footer__usage,
+    .footer__let {
         font-size: 14px;
     }
 

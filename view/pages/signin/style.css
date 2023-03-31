@@ -3,6 +3,7 @@ body {
     background-color: #F0EFF4;
 }
 
+
 .container {
     padding: 40px 20px 20px;
     display: flex;
@@ -10,13 +11,14 @@ body {
     align-items: center;
 }
 
-.upper{
+.upper {
     background-color: rgba(102, 161, 255, 0.5);
     border-radius: 0px 0px 50px 50px;
     margin: 0px auto;
     border: 1px solid #000000;
     border-radius: 0px 0px 50px 50px;
 }
+
 
 .singin__logo {
     padding-bottom: 40px;
@@ -114,8 +116,11 @@ body {
     opacity: 0.5;
 }
 
+
 @media (min-width: 1024px) {
-    .upper, .footer {
+
+    .upper,
+    .footer {
         max-width: 720px;
     }
 
@@ -140,9 +145,10 @@ body {
     }
 }
 
-
 @media (min-width: 768px) {
-    .upper, .footer {
+
+    .upper,
+    .footer {
         max-width: 540px;
     }
 }

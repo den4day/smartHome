@@ -10,7 +10,6 @@ let plus = document.querySelector('#plus');
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -35,6 +34,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -47,11 +47,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerBlinds") == "true") {
     power.checked = getCookie("powerBlinds");
-    console.log(getCookie("powerBlinds"));
 } else {
     power.checked = false;
     setCookie("powerBlinds", "false");
-    console.log(getCookie("powerBlinds"));
 }
 
 if (getCookie("blindsState")) {
@@ -90,8 +88,6 @@ if (input.selectedIndex == 4) {
 
 
 power.addEventListener("change", () => {
-    console.log(power.checked);
-
     if (power.checked) {
         switch (input.value) {
             case "0": info.textContent = "0%"; break;
@@ -126,8 +122,6 @@ power.addEventListener("change", () => {
 });
 
 input.addEventListener("change", () => {
-    console.log(Number(input.value));
-
     switch (input.value) {
         case "0": info.textContent = "0%"; break;
         case "45": info.textContent = "25%"; break;
@@ -159,8 +153,6 @@ input.addEventListener("change", () => {
 });
 
 minus.addEventListener("click", () => {
-    console.log("minus click");
-
     if (input.selectedIndex > 0) {
         input.selectedIndex -= 1;
 
@@ -171,8 +163,6 @@ minus.addEventListener("click", () => {
             case "135": info.textContent = "75%"; break;
             case "180": info.textContent = "100%";
         }
-    } else {
-        console.log("меньше нельзя!");
     }
 
     minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";
@@ -192,8 +182,6 @@ minus.addEventListener("click", () => {
 });
 
 plus.addEventListener("click", () => {
-    console.log("plus click");
-
     if (input.selectedIndex < 4) {
         input.selectedIndex += 1;
 
@@ -204,8 +192,6 @@ plus.addEventListener("click", () => {
             case "135": info.textContent = "75%"; break;
             case "180": info.textContent = "100%";
         }
-    } else {
-        console.log("больше нельзя!");
     }
 
     minus.style.backgroundColor = "rgba(102, 161, 255, 0.5)";

@@ -8,7 +8,6 @@ let photo = document.querySelector(".cv__photo");
 function setCookie(name, value, options = {}) {
 	options = {
 		path: '/',
-		// при необходимости добавьте другие значения по умолчанию
 		...options
 	};
 
@@ -33,6 +32,7 @@ function getCookie(name) {
 	let matches = document.cookie.match(new RegExp(
 		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
 	));
+
 	return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -45,11 +45,9 @@ function deleteCookie(name) {
 
 if (getCookie("powerCV") == "true") {
 	power.checked = getCookie("powerCV");
-	console.log(getCookie("powerCV"));
 } else {
 	power.checked = false;
 	setCookie("powerCV", "false");
-	console.log(getCookie("powerCV"));
 }
 
 
@@ -60,8 +58,6 @@ if (getCookie("cvState")) {
 
 
 socket.on("names", rec_name => {
-	console.log(rec_name);
-
 	if (rec_name == "Artyom") {
 		name.textContent = "Artem";
 		photo.src = `/pages/cv/img/Artem.png`;

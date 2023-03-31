@@ -96,8 +96,6 @@ let dataVenting = {
 
 
 io.on('connect', (socket) => {
-    console.log('new user connected');
-
     socket.on("dataHome", data => {
         let obj = JSON.parse(JSON.stringify(data));
 
@@ -112,16 +110,12 @@ io.on('connect', (socket) => {
         dataHome.powerCV = data.powerCV;
         dataHome.powerRobot = data.powerRobot;
 
-        console.log(dataHome);
-
         io.emit('homeControll', dataHome);
     });
 
     socket.on('pageLight', data => {
         dataLight.powerLight = data.powerLight;
         dataLight.brightness = data.brightness;
-
-        console.log(dataLight);
 
         io.emit('lightControll', dataLight);
     });
@@ -131,8 +125,6 @@ io.on('connect', (socket) => {
         dataAC.mode = data.mode;
         dataAC.temp = data.temp;
 
-        console.log(dataAC);
-
         io.emit('acControll', dataAC);
     });
 
@@ -140,16 +132,12 @@ io.on('connect', (socket) => {
         dataBlinds.powerBlinds = data.powerBlinds;
         dataBlinds.stage = data.stage;
 
-        console.log(dataBlinds);
-
         io.emit('blindsControll', dataBlinds);
     });
 
     socket.on('pageVenting', data => {
         dataVenting.powerVenting = data.powerVenting;
         dataVenting.speed = data.speed;
-
-        console.log(dataVenting);
 
         io.emit('ventingControll', dataVenting);
     });

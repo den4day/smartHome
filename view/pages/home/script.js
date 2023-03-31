@@ -29,7 +29,6 @@ let robotState = document.querySelector('#robotState');
 function setCookie(name, value, options = {}) {
     options = {
         path: '/',
-        // при необходимости добавьте другие значения по умолчанию
         ...options
     };
 
@@ -54,6 +53,7 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -72,7 +72,6 @@ function getDate() {
 
     let now = today.toLocaleString('en-US', options);
     document.querySelector('.weather__text').innerHTML = now.slice(0, -7);
-    console.log(now);
 }
 
 function getWeather() {
@@ -81,8 +80,6 @@ function getWeather() {
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
 
     axios.get(url).then(res => {
-        console.log(res.data.main.temp);
-        console.log(res.data.weather["0"].main);
         document.querySelector('.weather__tempOut').innerHTML = Math.round(res.data.main.temp);
         document.querySelector('.weather__header').innerHTML = res.data.weather["0"].main;
     });
@@ -91,65 +88,51 @@ function getWeather() {
 
 if (getCookie("powerLight") == "true") {
     powerLight.checked = getCookie("powerLight");
-    console.log(getCookie("powerLight"));
 } else {
     powerLight.checked = false;
     setCookie("powerLight", "false");
-    console.log(getCookie("powerLight"));
 }
 
 if (getCookie("powerAC") == "true") {
     powerAC.checked = getCookie("powerAC");
-    console.log(getCookie("powerAC"));
 } else {
     powerAC.checked = false;
     setCookie("powerAC", "false");
-    console.log(getCookie("powerAC"));
 }
 
 if (getCookie("powerBlinds") == "true") {
     powerBlinds.checked = getCookie("powerBlinds");
-    console.log(getCookie("powerBlinds"));
 } else {
     powerBlinds.checked = false;
     setCookie("powerBlinds", "false");
-    console.log(getCookie("powerBlinds"));
 }
 
 if (getCookie("powerVenting") == "true") {
     powerVenting.checked = getCookie("powerVenting");
-    console.log(getCookie("powerVenting"));
 } else {
     powerVenting.checked = false;
     setCookie("powerVenting", "false");
-    console.log(getCookie("powerVenting"));
 }
 
 if (getCookie("powerCV") == "true") {
     powerCV.checked = getCookie("powerCV");
-    console.log(getCookie("powerCV"));
 } else {
     powerCV.checked = false;
     setCookie("powerCV", "false");
-    console.log(getCookie("powerCV"));
 }
 
 if (getCookie("powerRobot") == "true") {
     powerRobot.checked = getCookie("powerRobot");
-    console.log(getCookie("powerRobot"));
 } else {
     powerRobot.checked = false;
     setCookie("powerRobot", "false");
-    console.log(getCookie("powerRobot"));
 }
 
 
 if (getCookie("lightState")) {
     lightState.textContent = getCookie("lightState");
-    console.log(getCookie("lightState"));
 } else {
     setCookie("lightState", "20%");
-    console.log(getCookie("lightState"));
 }
 
 if (getCookie("acState")) {
@@ -208,20 +191,15 @@ tabsBtn.forEach(item =>
 
 if (getCookie("activeTab") == "living") {
     tab1.click();
-    console.log(getCookie("activeTab"), "click");
 } else if (getCookie("activeTab") == "bedroom") {
     tab2.click();
-    console.log(getCookie("activeTab"), "click");
 } else if (getCookie("activeTab") == "dinning") {
     tab3.click();
-    console.log(getCookie("activeTab"), "click");
 } else if (getCookie("activeTab") == "courtyard") {
     tab4.click();
-    console.log(getCookie("activeTab"), "click");
 } else {
     tab1.click();
     setCookie("activeTab", "living");
-    console.log(getCookie("activeTab"), "click");
 }
 
 
@@ -245,10 +223,8 @@ tab4.addEventListener("click", () => {
 powerLight.addEventListener("click", () => {
     if (powerLight.checked) {
         setCookie("powerLight", "true");
-        console.log(getCookie("powerLight"));
     } else {
         setCookie("powerLight", "false");
-        console.log(getCookie("powerLight"));
     }
 
     socket.emit("pageHome", {
@@ -371,7 +347,6 @@ btnOff.addEventListener("click", () => {
 
 
 socket.on("tempAndHum", dataHome => {
-    console.log(dataHome);
     document.querySelector('.weather__tempIn').textContent = dataHome.temp;
     document.querySelector('.weather__hum').textContent = dataHome.hum;
 });
