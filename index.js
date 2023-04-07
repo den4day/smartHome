@@ -1,7 +1,7 @@
 let PORT = process.env.PORT || 3000;
-let express = require('express');
-let bodyParser = require('body-parser');
-let app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 let http = require('http');
 let server = http.Server(app);
 let io = require("socket.io")(server, {
@@ -13,7 +13,9 @@ let io = require("socket.io")(server, {
     allowEIO3: true,
 });
 
-
+  
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('view'));
 
 app.get('/', (req, res) => {
@@ -50,6 +52,12 @@ app.get('/signin', (req, res) => {
 
 app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/view/pages/signup/index.html');
+});
+
+app.post("/cv", (req, res) => {
+    // Retrieve array form post body
+    var array = req.body.array;
+    console.log(array);
 });
 
 server.listen(PORT, () => console.log(`Server started on ${PORT}...`));
