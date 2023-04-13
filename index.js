@@ -73,7 +73,7 @@ app.post("/cv", (req, res) => {
 
 
 let dataHome = {
-    powerLight: 0,
+    powerLight: 1,
     powerAC: 0,
     powerBlinds: 0,
     powerVenting: 0,
